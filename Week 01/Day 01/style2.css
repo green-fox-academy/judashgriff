@@ -1,0 +1,22 @@
+body {
+    background-image: url('Marble.jpg');
+    background-size: 100%;
+    line-height: 1.5em;
+    page-break-after: auto;
+    font-family: consolas;
+}
+.nav {
+    background-color: #333333;
+    color: #ffffff;
+    list-style: none;
+    text-align: right;
+    padding-right: 25px;
+    margin: 0;
+    top: 0;
+    font-family: 'Baloo Bhaijaan', cursive;
+    text-decoration: none;
+}
+.logo {
+    float: left;
+
+}

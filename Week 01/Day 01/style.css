@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('Marble.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    line-height: 1.5em;
+    page-break-after: auto;
+    font-family: consolas;
+}
+
+.header{
+    width: 100%;
+    height: 7%;
+    background: #333333;
+    position: fixed;
+    top: 0;
+}
+
+.logo img{
+    float: left;
+    width: 3em;
+    padding-left: 9em;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav{
+    float: right;
+    font-family: 'Baloo Bhaijaan', cursive;
+    padding-right: 5%;
+    /* padding-top: 4px; */
+
+}
+.header-links{
+    float: right;
+   
+
+}
+
+.nav li{
+    display: inline-block;
+    margin: 0.6em 0.8em;
+}
+
+.body2{
+    padding: 10%;
+
+}
