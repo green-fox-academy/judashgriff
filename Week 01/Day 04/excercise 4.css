@@ -1,0 +1,19 @@
+
+
+body {
+    margin: 2em;
+}
+
+h2 {
+    color:rgb(251, 161, 49);
+}
+
+p {
+    font-family: 'Khula', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.text {
+    padding: 0 1em 0 2em;
+}
