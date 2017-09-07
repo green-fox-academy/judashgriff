@@ -1,0 +1,25 @@
+
+
+body {
+    margin: 2em; 
+    width: 500px;
+}
+
+h2 {
+    color: tomato;
+}
+
+h3 {
+    color: palevioletred;
+}
+
+ol {
+    color: pink;
+    text-decoration: underline;
+}
+
+#roman {
+    color: black;
+    text-decoration: underline;
+}
+
