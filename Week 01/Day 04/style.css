@@ -2,16 +2,18 @@
 /*         Excercise 1 for week 1 day 4 workshop. */        
 
 * {
-    margin: 1em;
+    margin: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
     font-size: 36px;
-    background-color: blue;
-    display: block;
-    height: 4em;
-    width: 400px;
-    border: solid green;
-    border-width: 7px;
+    background-color: #0e91a1;
+    height: 3em;
+    width: 350px;
+    border: solid #7dce94;
+    border-width: 6px;
+    color: #065666;
+    padding: 0.5em;
 
 }
