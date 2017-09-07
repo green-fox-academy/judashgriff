@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+        margin: 1em;
+        border: 0;
+        padding: 0;
+}
+
+p {
+    display: inline-block;
+    font-size: 18px;
+    padding: 3em;
+    background-color: turquoise;
+    border-radius: 50%;
+    width: 50px;
+    text-align: center;
+}
