@@ -1,0 +1,25 @@
+* {
+    font-size: 18px;
+    /* margin: 1em; */
+    border: 0;
+    padding: 0;
+    
+}
+
+.big {
+    color: blue;
+}
+
+div > div {
+    border: solid;
+    border-width: 1px;
+    border-color: green;
+}
+
+div {
+    font-weight: bold;
+}
+
+p {
+    background-color: yellow;
+}
