@@ -1,0 +1,17 @@
+
+/*         Excercise 1 for week 1 day 4 workshop. */        
+
+* {
+    margin: 1em;
+}
+
+p {
+    font-size: 36px;
+    background-color: blue;
+    display: block;
+    height: 4em;
+    width: 400px;
+    border: solid green;
+    border-width: 7px;
+
+}
