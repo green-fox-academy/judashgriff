@@ -4,8 +4,10 @@
     border: 0;
     box-sizing: border-box;
     letter-spacing: 2px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     border-radius: 4px; 
+    color: #402A40;
+    font-weight: 700;
 }
 
 body {
@@ -15,13 +17,13 @@ body {
 main {
     width: 820px;
     height: 1060px;
-    background-color: #cacaca;
+    background-color: #c5c5c5;
     margin: 5% auto;
     padding: 40px 80px;
 }
 
 .box {
-    border: solid tomato 4px;
+    /* border: solid tomato 4px; */
     padding: 12px;
     display: inline-block;
     
@@ -61,15 +63,15 @@ p {
     margin-bottom: 12px;
 }
 
-label, input {
-    padding: 12px;
+label, input, select {
+    padding: 10px;
     Margin: 10px 0;
 }
 
 label {
     font-weight: bold;
     font-size: 12px;
-    padding: 12px 12px 12px 0;
+
 }
 
 .long {
@@ -81,11 +83,8 @@ label {
 }
 
 .button {
-    margin: 0 10px;
-}
-
-.checkboxes {
-
+    margin: 0 8px;
+    cursor: pointer;
 }
 
 .checkbox_left {
@@ -94,6 +93,10 @@ label {
 
 .checkbox_right {
     width: 146px;
+}
+
+.check {
+    cursor: pointer;
 }
 
 .checkbox_left:nth-child(n) {
@@ -110,4 +113,45 @@ span {
     color: gray;
     padding: 8px 4px;
     display: block;
+}
+
+.introduction {
+    width: 628px;
+    height: 180px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#cv {
+    display: block;
+    cursor: pointer;
+}
+
+.bottom {
+    margin-top: 16px;
+}
+
+.save {
+    Font-size: 24px;
+    color: white;
+    padding: 12px 12px;
+    width: 290px;
+    background-color: #410787;
+    margin-bottom: 12px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cancel {
+    Font-size: 16px;
+    padding: 12px 12px;
+    width: 200px;
+    background-color: #cccccc;
+    margin-bottom: 12px;
+    border: solid black 1px;
+    float: right;
+    text-align: center;
+    color: black;
+    cursor: pointer;
 }

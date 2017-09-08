@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My 2nd form, oh yeahh</title>
     <link rel="stylesheet" href="Form2.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
 </head>
 <body>
     
@@ -30,43 +31,43 @@
                 <input type="radio" name="Nem" class="button">
                 <label for="radio">Nő</label>
                 
-                <label for="márkák">Milyen márkát szeretsz?</label> <br>
+                <label for="márkák">Milyen márkákat szeretsz?</label> <br>
                 
                 <div class="checkboxes">
 
                     <div class="checkbox_left">
                     
-                        <input type="checkbox" name="brand" class="check_l">
+                        <input type="checkbox" name="márkák" class="check">
                         <label for="márkák">Adidas</label> <br>
                         
-                        <input type="checkbox" name="brand" class="check_l">
+                        <input type="checkbox" name="márkák" class="check">
                         <label for="márkák">Apple</label> <br>
                         
-                        <input type="checkbox" name="brand" class="check_l">
+                        <input type="checkbox" name="márkák" class="check">
                         <label for="márkák">Coca-Cola</label> <br>
                         
-                        <input type="checkbox" name="brand" class="check_1">
+                        <input type="checkbox" name="márkák" class="check">
                         <label for="márkák">Mazda</label> <br>
                         
-                        <input type="checkbox" name="brand" class="check_l">
+                        <input type="checkbox" name="márkák" class="check">
                         <label for="márkák">Nike</label> <br>
 
                     </div><div class="checkbox_right">
                     
-                        <input type="checkbox" name="brand"> 
-                        <label for="márkák" class="check_r">Opel</label> <br>
+                        <input type="checkbox" name="márkák"class="check"> 
+                        <label for="márkák" >Opel</label> <br>
                                         
-                        <input type="checkbox" name="brand"> 
-                        <label for="márkák" class="check_r">Rayban</label> <br>
+                        <input type="checkbox" name="márkák"class="check"> 
+                        <label for="márkák" >Rayban</label> <br>
 
-                        <input type="checkbox" name="brand"> 
-                        <label for="márkák" class="check_r">Starbucks</label> <br>
+                        <input type="checkbox" name="márkák"class="check"> 
+                        <label for="márkák" >Starbucks</label> <br>
 
-                        <input type="checkbox" name="brand"> 
-                        <label for="márkák" class="check_r">Tesl</label> <br>
+                        <input type="checkbox" name="márkák"class="check"> 
+                        <label for="márkák" >Tesl</label> <br>
 
-                        <input type="checkbox" name="brand"> 
-                        <label for="márkák" class="check_r">Yahoo</label> <br>
+                        <input type="checkbox" name="márkák"class="check"> 
+                        <label for="márkák" >Yahoo</label> <br>
 
                     </div>
                 
@@ -84,15 +85,41 @@
                 <label for="tel">Telefonszám:</label> <br>
                 <input type="tel" placeholder="+36 -- --- ----" class="long">
 
+                <label for="email">E-mail cím:</label> <br>
+                <input type="email" placeholder="nev@domail.hu" class="long">
 
+                <label for="Facebook">Facebook profilod:</label> <br>
+                <input type="url" placeholder="http://facebook.com/..." class="long">
+
+                <label for="twitter">Twitter profilod:</label> <br>
+                <input type="url" placeholder="http://twitter.com/..." class="long">
+
+                <label for="ház">Milyen házban laksz?</label> <br>
+                <select type="select" placeholder="Kérlek válasz" class="long">
+                    <option value="" disabled="disabled" selected="selected">Válassz típust!</option>
+                    <option value="Lakás">Lakás</option>
+                    <option value="Kertesház">Kertesház</option>
+                </select>
+                
             </div>
             
-            <div class="box footer full"></div>
+            <div class="box footer full">
 
+                <label for="introduction">Bemutatkozás:</label> <br>
+                <textarea rows="5" class="introduction" placeholder="Írj pár mondatot magadról!"></textarea>
 
+                <label for="cv">CV feltöltése</label> <br>
+                <input type="file" id="cv" placeholder="FILE KIVÁLASZTÁSA" class="long"> <br>
 
+                <input type="checkbox" name="feltetelek" class="check"> 
+                <label for="feltetelek">Elfogadom a felhasználói feltételeket</label>
+                  
+                <div class="bottom">
+                    <p class="save">Mentés</p>
+                    <p class="cancel">Űrlap törlése</p>
+                </div>
 
-
+            </div>
 
 
         </form>
