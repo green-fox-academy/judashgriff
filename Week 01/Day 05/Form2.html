@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My 2nd form, oh yeahh</title>
+    <link rel="stylesheet" href="Form2.css">
+</head>
+<body>
+    
+    <main>  
+        <form action="/form" method="post">
+
+            <div class="box header full">
+                <h1>Profil</h1>
+            </div>
+            <div class="box middle left">
+                <p>Személyes adatok</p>
+                
+                <label for="név">Név:</label> <br>
+                <input type="text" placeholder="Kérlek, írd ide a neved!" class="long">
+            
+                <label for="Születési év">Születési éved:</label> 
+                <label for="Nem">Nemed:</label> <br>
+                <input type="number" min="1900" max="2017" placeholder="pl: 1984" class="short">
+
+                <input type="radio" name="Nem" class="button">
+                <label for="radio">Férfi</label>
+                <input type="radio" name="Nem" class="button">
+                <label for="radio">Nő</label>
+
+            </div><div class="box middle right">
+                <p>Kapcsolat</p>
+            </div>
+            <div class="box footer full"></div>
+
+
+
+
+
+
+
+        </form>
+    </main>
+    
+</body>
+</html>
