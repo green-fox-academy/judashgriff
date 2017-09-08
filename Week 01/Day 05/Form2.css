@@ -15,7 +15,7 @@ body {
 main {
     width: 820px;
     height: 1060px;
-    background-color: #55aa55;
+    background-color: #cacaca;
     margin: 5% auto;
     padding: 40px 80px;
 }
@@ -30,12 +30,19 @@ main {
 .full {
     margin: 0 auto;
     width: 660px;
+}
+
+.header {
     height: 70px;
+}
+
+.footer {
+    height: 450px;
 }
 
 .middle {
     width: 330px;
-    height: 820px;
+    height: 458px;
     vertical-align: top;
 }
 
@@ -45,15 +52,18 @@ h1 {
 }
 
 p {
-    Font-size: 18px;
+    Font-size: 20px;
     color: white;
-    padding: 18px 12px;
+    padding: 12px 12px;
     font-weight: 200;
+    width: 290px;
+    background-color: #707070;
+    margin-bottom: 12px;
 }
 
 label, input {
     padding: 12px;
-    Margin: 12px 0;
+    Margin: 10px 0;
 }
 
 label {
@@ -72,4 +82,32 @@ label {
 
 .button {
     margin: 0 10px;
+}
+
+.checkboxes {
+
+}
+
+.checkbox_left {
+    width: 146px;
+}
+
+.checkbox_right {
+    width: 146px;
+}
+
+.checkbox_left:nth-child(n) {
+    padding: 0 6px;
+    display: inline-block;
+}
+
+.checkbox_right:nth-child(n) {
+    padding: 0 6px;
+    display: inline-block;
+}
+
+span {
+    color: gray;
+    padding: 8px 4px;
+    display: block;
 }
