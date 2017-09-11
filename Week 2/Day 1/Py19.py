@@ -7,7 +7,7 @@
 print ("Man, you should really provide a number...")
 num = int(input())
 
-if num == 0:
+if num <= 0:
     print ("Not enough!")
 if num == 1:
     print ("One")

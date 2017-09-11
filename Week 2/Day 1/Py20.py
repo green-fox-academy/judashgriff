@@ -8,3 +8,5 @@ if num1>num2:
     print ("The bigger is obviously number " + str(num1))
 if num1<num2:
     print ("The bigger is obviously number " + str(num2))
+if num1==num2:
+    print ("These are equal." + str(num1))

@@ -9,9 +9,10 @@
 work_hours = 17*5*6
 average = 17*52
 
+
 print (str(work_hours) + " hours of coding in total")
 
-print ( str(work_hours % average * 100) + "%")
+print (str((work_hours / average) * 100) + "%")
 
 percentage = work_hours / average * 100 
 
