@@ -8,11 +8,13 @@
 # *******
 #
 # The pyramid should have as many lines as the number was
-print ("Please provide a number!")
+num = int(input("Please provide a number!"))
 
-num = int(input())
 star = "*"
 value = 1
+space = num
 
-while value <= num:
-    print (num -1*" " +str(star)* + )
+while space > 0:
+    print ((space-1) * " " + (0 + value) * star)
+    value +=2
+    space -= 1
