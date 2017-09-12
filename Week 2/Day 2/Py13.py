@@ -12,7 +12,6 @@ matrix = [[],[],[],[]]
 for i in range(len(matrix)):
     matrix[i] = [0,0,0,0]
     matrix[i][i]+=1
-    print(matrix[i])
 
-# for n in a:
-#     print(n)
+for n in matrix:
+    print(n)

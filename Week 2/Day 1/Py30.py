@@ -19,9 +19,9 @@ value = 1
 half = num//2
 
 while half >= 1 and num%2==1:
-    print (space * " " + value * star)
+    print (half * " " + (value) * star)
     value +=2
-    space -= 1
+    half -= 1
 while half < num//2+1 and num%2==1:
     print (half * " " + value * star)
     value -=2
@@ -31,13 +31,12 @@ while half >= 2 and num%2==0:
     print (half * " " + (value * star))
     value +=2
     half -= 1
-
-if num % 2 == 0:
-    value -= 1
-else:
+while half == 1 and num%2 == 0:
+    print (half * " " + (value * star))
+    print (half * " " + (value * star))
     value -=2
-
-while half <= num//2 and num%2==0:
+    half += 1 
+while half < num//2+1 and num%2==0:
     print (half * " " + value * star)
     value -=2
     half += 1 
