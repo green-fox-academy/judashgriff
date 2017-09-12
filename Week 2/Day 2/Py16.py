@@ -4,6 +4,13 @@
 
 nimals = ["kuty", "macs", "cic"]
 
-new_list = ['%sa' % x for x in nimals]
+#new_list = ['%sa' % x for x in nimals]
 
-print (new_list)
+#print (new_list)
+
+animals = []
+
+for i in nimals:
+    animals.append (i + "a") 
+
+print (animals)
