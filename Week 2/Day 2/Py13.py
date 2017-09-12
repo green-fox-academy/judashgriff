@@ -7,6 +7,8 @@
 #   0 0 0 1
 #
 # - Print this two dimensional list to the output
+def list ()
+
 for num in list:
     "1" + (num -1) * 0 + num
 
