@@ -39,7 +39,7 @@ def age(students):
 candy = names(students)
 
 ages = age(students)
-print (ages)
+
 sum_of_ages = 0
 
 for i in ages:
