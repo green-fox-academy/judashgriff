@@ -25,8 +25,27 @@ def names(students):
         candy.append(temp)
     return candy
 
-# candies = names(students)
+def age(students):
+    ages = []
+    for i in students:
+        temp = {}
+        if i['candies'] < 5: 
+            temp['name'] = i['name']
+            temp['age'] = i['age']
+            ages.append(temp)
+    return ages
 
 
 candy = names(students)
+
+ages = age(students)
+
+sum_of_ages = 0
+
+for i in ages:
+    sum_of_ages += i['age']
+
+averages = sum_of_ages / len(ages)
+
 print (candy)
+print (averages)
