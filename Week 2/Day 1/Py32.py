@@ -15,6 +15,7 @@
 #     between = ("%" + ((num-2)//2)* " "+ "%" + ((num-2)//2)* " " +"%")
 # elif num % 2 == 0:
 #     between = ("%" + ((num-2)//2)* " "+ "%" + ((num-2)//2-1)* " " +"%")
+
 num = int(input("Please provide a number!"))
 
 envelope = num * "%"
