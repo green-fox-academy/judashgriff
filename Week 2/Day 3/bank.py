@@ -69,7 +69,7 @@ def end_message(transfer_to, amount):
             From = certain_acc
         if certain_acc['account_number'] == transfer_to:
             to = certain_acc
-    print("The transfer is complete! Your current account balance is: " + str(From['balance']) + ". The balance of the account where you sent the money currently is: " + str(to['balance']) + "\n Thank you for your transaction! We hope to see you again soon!")
+    print("The transfer is complete! Your current account balance is: " + str(From['balance']) + "\n Thank you for your transaction! We hope to see you again soon!")
 
 
 transfer_from = int(input("Please provide your account number!: "))

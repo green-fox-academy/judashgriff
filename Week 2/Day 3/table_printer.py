@@ -15,9 +15,9 @@
 
 ingredients = [
 	{ "name": "vodka", "in_stock": 1, "needs_cooling": True },
-	{ "name": "coffee_liqueur", "in_stock": 0, "needs_cooling": True },
+	{ "name": "coffee_liqueur", "in_stock": 38887, "needs_cooling": True },
 	{ "name": "fresh_cream", "in_stock": 1, "needs_cooling": True },
-	{ "name": "captain_morgan_rum", "in_stock": 2, "needs_cooling": True },
+	{ "name": "captain_morgan_rum_ala_huhhahahahhahahahaha", "in_stock": 2, "needs_cooling": True },
 	{ "name": "mint_leaves", "in_stock": 0, "needs_cooling": False },
 	{ "name": "sugar", "in_stock": 0, "needs_cooling": False },
 	{ "name": "lime juice", "in_stock": 0, "needs_cooling": True },

@@ -31,7 +31,7 @@ def alcohol_confiscator(queue, security_alcohol_loot):
     return security_alcohol_loot
 
 
-def wathlist_provider(queue, watchlist):
+def watchlist_provider(queue, watchlist):
     for person in queue:
         if person['guns'] > 0:
             person['guns'] = 0
@@ -41,7 +41,7 @@ def wathlist_provider(queue, watchlist):
 
     
 security_alcohol_loot =  alcohol_confiscator(queue, security_alcohol_loot)
-watchlist = wathlist_provider(queue, watchlist)
+watchlist = watchlist_provider(queue, watchlist)
 
 print("People on the Watchlist: " + str(watchlist))
 print("Security alcohol loot: " + str(security_alcohol_loot))
