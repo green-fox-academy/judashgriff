@@ -20,12 +20,9 @@ def name_and_balance(item):
     for certain_acc in item:
         if transfer_from == certain_acc['account_number']:
             print("Welcome " + str(certain_acc['client_name']) + "! Your current balance is: " + str(certain_acc['balance']))
+            account_number_check(item)
             return
     print("The account number you entered is invalid.")
-
-
-transfer_from = int(input("Please provide your account number!: "))
-name_and_balance(accounts)
 
 
 def account_number_check(item):
@@ -75,4 +72,5 @@ def end_message(transfer_to, amount):
     print("The transfer is complete! Your current account balance is: " + str(From['balance']) + ". The balance of the account where you sent the money currently is: " + str(to['balance']) + "\n Thank you for your transaction! We hope to see you again soon!")
 
 
-account_number_check(accounts)
+transfer_from = int(input("Please provide your account number!: "))
+name_and_balance(accounts)

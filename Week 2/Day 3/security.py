@@ -1,4 +1,3 @@
-
 watchlist = []
 
 security_alcohol_loot = 0
@@ -21,3 +20,28 @@ queue = [
 
 # If guns are found, remove them and put them on the watchlist (only the names)
 # If alcohol is found confiscate it (set it to zero and add it to security_alchol_loot) and let them enter the festival
+
+
+def alcohol_confiscator(queue, security_alcohol_loot):
+    for person in queue:
+        if person['alcohol'] > 0:
+            security_alcohol_loot += person['alcohol']
+            person['alcohol'] -= person['alcohol']
+    print ("All booze is taken.")
+    return security_alcohol_loot
+
+
+def wathlist_provider(queue, watchlist):
+    for person in queue:
+        if person['guns'] > 0:
+            person['guns'] = 0
+            watchlist.append(person['name'])
+    print ('No weapons on our festival. You are watched!')
+    return watchlist
+
+    
+security_alcohol_loot =  alcohol_confiscator(queue, security_alcohol_loot)
+watchlist = wathlist_provider(queue, watchlist)
+
+print("People on the Watchlist: " + str(watchlist))
+print("Security alcohol loot: " + str(security_alcohol_loot))
