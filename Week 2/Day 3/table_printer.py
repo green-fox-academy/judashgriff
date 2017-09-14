@@ -33,7 +33,7 @@ def width_collector(item):
 
 
 def width_counter(List_item):
-    first_column = len(max(List_item, key=len))
+    first_column = len(max(List_item, key=len)) + 1
     printer(first_column)
     return
 
@@ -43,11 +43,11 @@ def printer(first):
     for i in range(first):
         linear += "-"
     linear += "+"
-    second_and_third_column(linear)
+    second_and_third_column(linear, first)
     return
     
     
-def second_and_third_column(linear):
+def second_and_third_column(linear, first):
     second_column = 15
     third_column = 10
     for i in range(second_column):
@@ -57,36 +57,44 @@ def second_and_third_column(linear):
         linear += "-"
     linear += "+"
     print(linear)
-    header(linear, second_column, third_column)
-    return linear
+    header(linear, first, second_column, third_column)
+    return 
 
 
-def header(first, second, third):
+def header(linear, first, second, third):
     header = "|"
     ingridient = " Ingredient "
     cooling = " Needs cooling "
     stock = " In stock "
     header += ingridient
-    more = (len(first) - len(ingridient)) * "-"
+    more = (first - len(ingridient)) * " "
     header += more 
     header += "|" + cooling + "|" + stock + "|"
     print(header)
-    print(first)
-    # content(first, second, third)
+    print(linear)
+    content(linear, first, second, third)
     return
 
 
-# def content(first, second, third):
+def content(linear, first, second, third):
+    for each in ingredients:
+        line = ""
+        line += "| "
+        line += each['name']
+        line += (first - len(each['name']) - 1) * " " + "| "
+        if each['needs_cooling'] is True: 
+            line += "Yes" + (second - 4) * " " + "| "
+        elif each['needs_cooling'] is False:
+            line += "No" + (second - 3) * " " + "| "
+        if each['in_stock'] > 0:
+            line += str(each['in_stock'])
+            line += (third - len(str(each['in_stock'])) - 1) * " "
+        else:
+             line += "-" + (third - len(str(each['in_stock'])) - 1) * " "
+        line += "|"
+        print(str(line))
+    print(linear)
+    return
 
 
-
-linear = width_collector(ingredients)
-
-# printer(ingredients)
-
-
-
-
-
-
-
+width_collector(ingredients)
