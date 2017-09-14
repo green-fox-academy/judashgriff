@@ -15,3 +15,28 @@
 # Waits for the user input
 # Print the result
 # Exit
+
+#! /usr/bin/python
+
+
+def calculator(input):
+    if splitted_user_input[0] == "+":
+        calculation = int(splitted_user_input[1]) + int(splitted_user_input[2])
+    elif splitted_user_input[0] == "-":
+        calculation = int(splitted_user_input[1]) - int(splitted_user_input[2])
+    elif splitted_user_input[0] == "*":
+        calculation = int(splitted_user_input[1]) * int(splitted_user_input[2])
+    elif splitted_user_input[0] == "/":
+        calculation = int(splitted_user_input[1]) / int(splitted_user_input[2])
+    elif splitted_user_input[0] == "%":
+        calculation = int(splitted_user_input[1]) % int(splitted_user_input[2])
+    else:
+        calculation = ("Please follow the provided guide and try again entering the values in the correct format.")
+    return calculation
+
+user_input = input("Welcome to the calculator beta version. \n Please enter your desired operation, ( + for addition, - for substraction \n * for multiplication, / for division and ""%"" for modus function)\n and the two numbers to calculate. Please use the following format: {operation} {operand} {operand} \nas in example: + 3 4 : ")
+splitted_user_input = user_input.split(" ")
+
+calculation = calculator(splitted_user_input)
+
+print(calculation)
