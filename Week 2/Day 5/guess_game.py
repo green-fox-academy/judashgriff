@@ -18,7 +18,7 @@ from random import randint
 
 
 number = randint(0, int(input("What will be the scope for the game? 0 to... ? Enter a maximum!: ")))
-
+print("You have 5 lives. Let the game began! \n\n")
 
 def guessing_game(number):
     lives = 5
@@ -29,11 +29,11 @@ def guessing_game(number):
             return
         elif guess < number:
             lives -= 1
-            print("Nope, this is too little! You have " + str(lives) + " lives left!")
+            print("Nope, this is too little! You have " + str(lives) + " lives left! \n")
         elif guess > number: 
             lives -= 1
-            print("Nope, this is too much! You have " + str(lives) + " lives left!")
-    print("You have no more lives left! You lose!")
+            print("Nope, this is too much! You have " + str(lives) + " lives left! \n")
+    print("You have no more lives left! You have lost!")
     if lives == 0: 
         return
 
