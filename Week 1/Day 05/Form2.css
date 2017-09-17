@@ -23,7 +23,7 @@ main {
 }
 
 .box {
-    border: solid tomato 4px;
+    /* border: solid tomato 4px; */
     padding: 12px;
     display: inline-block;
     

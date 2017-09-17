@@ -18,7 +18,7 @@ from random import randint
 
 
 number = randint(0, int(input("What will be the scope for the game? 0 to... ? Enter a maximum!: ")))
-print("You have 5 lives. Let the game began! \n\n")
+print("You have 5 lives. Let the game began! \n")
 
 def guessing_game(number):
     lives = 5
