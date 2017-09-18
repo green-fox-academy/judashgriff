@@ -6,7 +6,7 @@
 def open_file(filename):
     try:
         open(filename, "r")
-        print(filename)
+        print(filename.read())
     except:
         return "Unable to read file: my-file.txt"
 
