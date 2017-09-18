@@ -10,22 +10,20 @@
 
 def find_int(input1, the_number):
     the_list = make_numbers(input1)
-    for each in the_list:
-        if the_number in the_list:
-            print(the_list.index())
+    for i in range(len(the_list)):
+        if the_number in the_list[i]:
+            print(i)
     return
 
 
 def make_numbers(input1):
-    the_list = []
-    the_list += input1.split(" ")
-    for each in range(len(the_list)):
-        the_list[each] = int(the_list[each])
+    the_list = input1.split(" ")
+    # the_list = list(map(int, the_list))
     print(the_list)
     return the_list
 
 
 input1 = input("Please enter a list of numbers!: ")
-input2 = int(input("Please enter a number you are looking for!: "))
+input2 = input("Please enter a number you are looking for!: ")
 
-print(find_int(input1, input2))
+find_int(input1, input2)

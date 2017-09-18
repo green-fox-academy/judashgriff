@@ -10,20 +10,19 @@
 
 def find_str(input1, the_string):
     the_list = make_list(input1)
-    for each in the_list:
-        if the_string in the_list:
-            print(the_list.index())
+    for i in the_list:
+        if the_string in i:
+            print(the_list.index(i))
     return
-
 
 def make_list(input1):
     the_list = []
     the_list += input1.split(" ")
-    print(the_list)
     return the_list
+
 
 
 input1 = input("Please enter a list of words!: ")
 input2 = input("Please enter a word you are looking for!: ")
 
-print(find_str(input1, input2))
+find_str(input1, input2)
