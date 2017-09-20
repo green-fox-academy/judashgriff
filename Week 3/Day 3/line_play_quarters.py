@@ -31,5 +31,4 @@ def make_colorful_lines():
 make_colorful_lines()
 
 
-
 root.mainloop()
