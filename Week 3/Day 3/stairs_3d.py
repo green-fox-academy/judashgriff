@@ -10,9 +10,9 @@ canvas.pack()
 
 def create_boxes(box_size):
     base = 0
-    for each in range(7):
-        box = canvas.create_rectangle((each + 1) * 10 + base, (each + 1) * 10 + base, (each + 1) * 20 + base, (each + 1) * 20 + base, fill='purple')
-        base += each * 10
+    for each in range(6):
+        box = canvas.create_rectangle((each + 1) * box_size + base, (each + 1) * box_size + base, (each + 1) * (box_size * 2) + base, (each + 1) * (box_size * 2) + base, fill='purple')
+        base += each * box_size
 
 
 box_size = 10
