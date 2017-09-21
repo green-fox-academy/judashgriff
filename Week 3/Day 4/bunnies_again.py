@@ -5,12 +5,12 @@
 
 def get_bunny_ears(bunnies):
     if bunnies == 1:
-        return 3
+        return 2
     else:
         if bunnies % 2 == 0:
-            return 2 + get_bunny_ears(bunnies-1)
-        else:
             return 3 + get_bunny_ears(bunnies-1)
+        else:
+            return 2 + get_bunny_ears(bunnies-1)
 
 bunnies = 9
 
