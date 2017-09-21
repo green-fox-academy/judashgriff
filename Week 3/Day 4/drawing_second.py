@@ -12,7 +12,9 @@ def make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l):
     else:
         canvas.create_polygon(a,b, c,d, e,f, g,h, i,j, k,l, fill ='', outline='black')
         limit -=1
-        return make_beehive_thing(limit, (a + (k-a)/2),(b + (l-b)/2),c,(d - (d-l)/2),(e - (e-k)/2),(f - (f-l)/2),(k + (i-k)/3*2),(j + (h-j)/2),(i - (i-k)/2),j,k,l), make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l), make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
+        make_beehive_thing(limit, (a + (k-a)/2),(b + (l-b)/2),c,(d - (d-l)/2),(e - (e-k)/2),(f - (f-l)/2),(k + (i-k)/3*2),(j + (h-j)/2),(i - (i-k)/2),j,k,l)
+        make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
+        make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
 
 
 # canvas.create_polygon([150,75,225,0,300,75,225,150, 200, 200], outline='gray', fill='gray', width=2)
