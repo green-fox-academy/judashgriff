@@ -2,7 +2,7 @@
 # lowercase 'x' chars have been changed to 'y' chars.
 
 def change_x_to_y(string):
-    if len(string) == 1:
+    if len(string) == 0:
         return string
     elif string[0] == "x":
         return "y" + change_x_to_y(string[1:])
