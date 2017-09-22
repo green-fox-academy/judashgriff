@@ -7,8 +7,7 @@ canvas = Canvas(root, width='400', height='400', bd=0, highlightthickness=0)
 canvas.pack()
 
 def box(x,y,size):
-    canvas.create_rectangle(x, y, x + size, y + size, fill = '', outline='')
-    canvas.create_rectangle(x + size / 3, y + size / 3, x + (size / 3) * 2, y + (size / 3) * 2,  fill = 'black', outline='')
+    canvas.create_rectangle(x + size / 3, y + size / 3, x + (size / 3) * 2, y + (size / 3) * 2,  fill = 'black')
 
 
 def draw_fractal(x,y,size):
