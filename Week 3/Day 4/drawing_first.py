@@ -1,5 +1,5 @@
 from tkinter import *
-
+import time
 
 root = Tk()
 
@@ -8,6 +8,8 @@ canvas.pack()
 
 
 def make_thing(x, y, size):
+    time.sleep(0.1)
+    canvas.update()
     start_x = x + size
     start_y = y + size
     if size < 2:

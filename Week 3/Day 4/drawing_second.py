@@ -1,38 +1,40 @@
 from tkinter import *
-
+import math
+import time
 
 root = Tk()
 
-canvas = Canvas(root, width='600', height='600', bd=0, highlightthickness=0)
+canvas = Canvas(root, width='400', height='400', bd=0, highlightthickness=0)
 canvas.pack()
 
-def make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l):
-    if limit == 1:
-        pass
+def draw_beehive_thing(x,y,width):
+    height = math.sqrt(3) / 2 * width
+    canvas.create_polygon(x, y, x + width / 2, y - height,
+                          x + width * 1.5, y - height, 
+                          x + width * 2,  y,
+                          x + width * 1.5, y + height,
+                          x + width / 2, y + height,
+                          fill = 'yellow', outline='black')
+
+
+def draw_fractal(x,y,width):
+    time.sleep(0.001)
+    canvas.update()
+    if width < 5:
+        return
     else:
-        canvas.create_polygon(a,b, c,d, e,f, g,h, i,j, k,l, fill ='', outline='black')
-        limit -=1
-        make_beehive_thing(limit, (a + (k-a)/2),(b + (l-b)/2),c,(d - (d-l)/2),(e - (e-k)/2),(f - (f-l)/2),(k + (i-k)/3*2),(j + (h-j)/2),(i - (i-k)/2),j,k,l)
-        make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
-        make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
+        height = math.sqrt(3) / 2 * width
+        draw_beehive_thing(x, y, width)
+        draw_fractal(x + width / 4, y - height / 2, width/2)
+        draw_fractal(x + width, y, width / 2)
+        draw_fractal(x + width / 4, y + height / 2, width/2)
 
 
-# canvas.create_polygon([150,75,225,0,300,75,225,150, 200, 200], outline='gray', fill='gray', width=2)
+x = 10
+y = 200
+width = 150
 
-limit = 5
-a = 80 
-b = 300   
-c = 175 
-d = 505
-e = 425
-f = 505 
-g = 520
-h = 300
-i = 425
-j = 95
-k = 175
-l = 95
+draw_fractal(x, y, width,)
 
-size = 600/3
-make_beehive_thing(limit, a,b,c,d,e,f,g,h,i,j,k,l)
+
 root.mainloop()
