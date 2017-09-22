@@ -8,7 +8,11 @@ canvas = Canvas(root, width='420', height='420', bd=0, highlightthickness=0)
 canvas.pack()
 
 def circle(x,y,size):
-    canvas.create_oval(x, y, x + size, y +size, fill = '', outline='black')
+    canvas.create_oval(x - size / 2, y - size / 2, x + size / 2, y + size / 2, fill = '', outline='black')
+
+
+def get_triangle_side(height):
+    return math.sqrt(4*height**2/3)
 
 
 def draw_fractal(x,y,size):
@@ -18,13 +22,15 @@ def draw_fractal(x,y,size):
         return
     else:
         circle(x, y, size)
-        draw_fractal(x + size / 4, y, size / 2)
-        draw_fractal(x + size/70 , y + size / 3, size / 2)
-        draw_fractal(x + size / 2 - size/70, y + size / 3 , size / 2)
+        triangle_height = size * 0.75
+        triangle_side = get_triangle_side(triangle_height)
+        draw_fractal(x, y - size / 4, size / 2)
+        draw_fractal(x - triangle_side / 4, y + size / 8, size / 2)
+        draw_fractal(x + triangle_side / 4, y + size / 8 , size / 2)
 
 
-x = 10
-y = 10
+x = 210
+y = 210
 size = 400
 
 draw_fractal(x, y, size)
