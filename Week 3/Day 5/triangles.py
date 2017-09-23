@@ -14,7 +14,7 @@ def draw_fractal(x,y,size):
     time.sleep(0.00001)
     canvas.update()
     # animation.update()
-    if size < 15:
+    if size < 5:
     #     for x in range(0, 1):
     #         canvas.move(1, 3, 0)
     #         animation.update()

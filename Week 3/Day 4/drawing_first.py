@@ -8,7 +8,7 @@ canvas.pack()
 
 
 def make_thing(x, y, size):
-    time.sleep(0.1)
+    time.sleep(0.001)
     canvas.update()
     start_x = x + size
     start_y = y + size
