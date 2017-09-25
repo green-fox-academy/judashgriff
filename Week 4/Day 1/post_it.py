@@ -14,8 +14,6 @@ class PostIt(object):
         self.text_color = text_color
 
 
-    
-
 first = PostIt('orange', "Idea 1", 'blue')
 second = PostIt('pink', "Awesome", 'black')
 third = PostIt('yellow', "Superb", 'green')
