@@ -1,6 +1,6 @@
-from random import randint
+from random import randint, choice
 
-class Pirate(object):
+class Pirate():
     def __init__(self, name):
         self.name = name
         self.how_much_rum = 0
@@ -65,7 +65,6 @@ class Pirate(object):
         return randint(1, 3)
 
 
-
 class Parrot(object):
     def __init__(self, name):
         self.name = name
@@ -92,16 +91,39 @@ class Parrot(object):
         print(str(pirate.name) + " is dead. He will cause no trouble on the ship anymore. - said " + str(self.name) + " the parrot.")
 
 
-Jack = Pirate('Jack')
-Bill = Pirate('Bill')
-Larry = Pirate('Larry')
+class Ship(Pirate):
+    def __init__(self):
+        self.ship_name = "name"
+        self.pirates = 0
+        self.captain = "captain"
+    
+    def fill_ship(self):
+        self.crew_on_board()
+        self.captain_on_board()
+        self.ship_name()
+        print(str(self.pirates) + " pirates boarded the " + str(self.ship_name) + ". The captain is " + str(self.captain) + "!")
+
+    def crew_on_board(self):
+        self.pirates = randint(5, 50)
+
+    def captain_on_board(self):
+        self.captain = choice(captains_list)
+
+    def ship_name(self):
+        self.ship_name = choice(ship_names_list)
+
+    captains_list = ['Jack Sparrow', 'Will Turner', 'Larry Ole', 'Davy Jones', 'Blackbeard', 'Barbossa']
+    ship_names_list = ['The Black Pearl', 'Surprise', 'The Sunken Bottle', 'The Empresses Wrath', 'The Horrid Rose', 'The Drunken Executioner']
+
+
+Jack = Pirate('Jack Sparrow')
+Bill = Pirate('Will Turner')
+Larry = Pirate('Larry Ole')
+Jones = Pirate('Davy Jones')
+Blackbeard = Pirate('Blackbeard')
+Barbossa = Pirate('Barbossa')
 Coco = Parrot('Coco')
 
+Pearl = Ship()
 
-Larry.drink_some_rum()
-Larry.drink_some_rum()
-Larry.drink_some_rum()
-Larry.drink_some_rum()
-Bill.brawl(Larry)
-Larry.hows_it_going_mate()
-
+Pearl.fill_ship
