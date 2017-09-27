@@ -1,4 +1,4 @@
-from Krausz_Andras_work import Getting_apple, Sum
+from Krausz_Andras_work import Getting_apple, Sum, Anagram, Count_letters
 import unittest
 
 class TestGetting_apple(unittest.TestCase):
@@ -16,6 +16,33 @@ class TestSum(unittest.TestCase):
 
     def test_if_many(self):
         self.assertEqual(Sum().sum_of_list([1, 2, 3]), 6)
+
+
+class TestAnagram(unittest.TestCase):
+    def test_anagrama_if_true(self):
+        self.assertTrue(Anagram().anagram("indulagörögaludni"))
+
+    def test_anagrama_if_true(self):
+        self.assertFalse(Anagram().anagram("mylittlepony"))
+        
+        
+class TestCount_letters(unittest.TestCase):
+    def test_if_empty(self):
+        count = Count_letters()
+        self.assertEqual(count.count_letters(""), {})
+    
+    def test_if_one(self):
+        count = Count_letters()
+        self.assertEqual(count.count_letters("a"), {"a": 1})        
+
+    def test_if_many(self):
+        count = Count_letters()
+        self.assertEqual(count.count_letters("ab"), {"a": 1, "b": 1})        
+
+    def test_if_double(self):
+        count = Count_letters()
+        self.assertEqual(count.count_letters("aa"), {"a": 2})        
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -10,8 +10,30 @@ class Sum(object):
             total += i
         return total
 
-
 list_of_nums = [5, 4, 9]
 
 numbers = Sum()
-print(numbers.sum_of_list(list_of_nums))
+numbers.sum_of_list(list_of_nums)
+
+
+class Anagram(object):
+    def anagram(self, string):
+        if string == string[::-1]:
+            return True
+        return False
+
+string = Anagram()
+string.anagram("indulagörögaludni")
+
+
+class Count_letters(object):
+    def count_letters(self, word):
+        dict_of_chars = {}
+        for letter in word:
+            if letter in dict_of_chars:
+                dict_of_chars[letter] += 1
+            else:
+                dict_of_chars[letter] = 1
+        return dict_of_chars
+
+
