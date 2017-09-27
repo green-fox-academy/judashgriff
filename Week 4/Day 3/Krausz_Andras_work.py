@@ -11,7 +11,7 @@ class Sum(object):
         return total
 
 
-list_of_nums = []
+list_of_nums = [5, 4, 9]
 
 numbers = Sum()
-numbers = Sum().sum_of_list(list_of_nums)
+print(numbers.sum_of_list(list_of_nums))

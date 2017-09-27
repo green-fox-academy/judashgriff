@@ -9,11 +9,13 @@ class TestGetting_apple(unittest.TestCase):
 
 class TestSum(unittest.TestCase):
     def test_if_empty_list(self):
-        self.assertEqual(Sum().sum_of_list(list_of_nums), None)
+        self.assertEqual(Sum().sum_of_list([]), 0)
 
     def test_if_one(self):
-        self.assertEqual(Sum().sum_of_list([1, 2, 3]), 6)
+        self.assertEqual(Sum().sum_of_list([1]), 1)
 
+    def test_if_many(self):
+        self.assertEqual(Sum().sum_of_list([1, 2, 3]), 6)
 
 if __name__ == '__main__':
     unittest.main()
