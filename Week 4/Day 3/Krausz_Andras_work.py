@@ -37,3 +37,11 @@ class Count_letters(object):
         return dict_of_chars
 
 
+class Fibonacci(object):
+    def fibonacci(self, num):
+        if num == 1:
+            return num
+        elif num < 1:
+            return False
+        else:
+            return self.fibonacci(num-2) + self.fibonacci(num-1)

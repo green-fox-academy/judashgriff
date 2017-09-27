@@ -1,4 +1,4 @@
-from Krausz_Andras_work import Getting_apple, Sum, Anagram, Count_letters
+from Krausz_Andras_work import Getting_apple, Sum, Anagram, Count_letters, Fibonacci
 import unittest
 
 class TestGetting_apple(unittest.TestCase):
@@ -44,5 +44,17 @@ class TestCount_letters(unittest.TestCase):
         self.assertEqual(count.count_letters("aa"), {"a": 2})        
 
 
+class TestFibonacci(unittest.TestCase):
+    def test_if_one(self):
+        self.assertEqual(Fibonacci().fibonacci(1), 1)        
+    
+    def test_if_less_than_one(self):
+        self.assertFalse(Fibonacci().fibonacci(0), False)        
+    
+    def test_if_many(self):
+        self.assertEqual(Fibonacci().fibonacci(3), 2)  
+
 if __name__ == '__main__':
     unittest.main()
+
+    
