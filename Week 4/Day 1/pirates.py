@@ -1,25 +1,24 @@
 from random import randint, choice
 
-class Pirate():
+class Pirate(object):
     def __init__(self, name):
         self.name = name
         self.how_much_rum = 0
         self.alive = True
-
+        self.awake = True
 
     def drink_some_rum(self):
         if self.alive == False:
-            Coco.when_dead()
+            coco.when_dead()
         else:
             self.how_much_rum += 1
-            Coco.when_drinking(self)
+            print(str(self.name) + " had " + str(self.how_much_rum) + " rum.")
             if self.how_much_rum > 7:
                 self.knocked_out()
-                
 
     def hows_it_going_mate(self):
         if self.alive == False:
-            Coco.when_dead()
+            coco.when_dead()
         elif self.how_much_rum < 5:
             print("Pour me anudder!")
         elif self.how_much_rum >= 5:
@@ -27,22 +26,22 @@ class Pirate():
             self.knocked_out()
         elif self.how_much_rum > 7:
             self.knocked_out()
-
+            if self.awake == False:
+                print(str(self.name) + " passes out from too much rum. The lad's gonna sleep awhile.")
 
     def knocked_out(self):
-        Coco.when_knocked_out(pirate)
+        self.awake = False
         self.how_much_rum = 0
-
 
     def die(self):
         self.alive = False
 
-
     def brawl(self, pirate):
         if self.alive == False or pirate.alive == False:
-            Coco.figth_the_dead()
+            coco.figth_the_dead()
         else:
-            Coco.brawl(self, pirate)
+            print(str(self.name) + " and " + str(pirate.name) 
+                  + " are in a damn knife-fight! They gonna bloody curve each other up!")
             first_outcome = self.dice_check()
             second_outcome = pirate.dice_check()
             if first_outcome and second_outcome == 3:
@@ -51,79 +50,100 @@ class Pirate():
                 print("They cut each others guts. Now they're both bled out and dead.")
             elif first_outcome == 3:
                 pirate.die()
-                Coco.fight_till_death(pirate)
+                print(str(pirate.name) + " is dead. He will cause no trouble on the ship anymore.")
             elif second_outcome == 3:
                 self.die()
-                Coco.fight_till_death(self)
+                print(str(self.name) + " is dead. He will cause no trouble on the ship anymore.")
             else:
                 print("No-one has died in the fight today. They both go and drink some rum instead.")
                 pirate.drink_some_rum()
                 self.drink_some_rum()
 
-    
     def dice_check(self):
         return randint(1, 3)
 
 
+class Captain(Pirate):
+    def __init__(self, name):
+        super().__init__(name)
+        self.rum = 0
+
+
+    def how_s_d_captn(self):
+        self.get_some_rum()
+        if self.alive == False:
+            print("The captain is dead! Run for your lives!\n")
+        elif self.awake == False:
+            print("The captain had too much rum! He's licking up the deck now!\n")
+        else:
+            print(str(self.name) + " has all in control. The ship is on course towards a glorious raid!\n")
+
+    def get_some_rum(self):
+        return self.is_awake(randint(1, 6))
+
+    def is_awake(self, rum):
+        self.rum = rum
+        if rum < 5:
+            self.awake = False
+        return 
+
+
 class Parrot(object):
     def __init__(self, name):
-        self.name = name
-
+        self.parrot_name = name
 
     def when_dead(self):
-        print("He's dead - said " + str(self.name) + " the parrot.")
-
-    def when_drinking(self, pirate):
-        print(str(pirate.name) + " had " + str(pirate.how_much_rum) + " rum - said " + str(self.name) + " the parrot.")
-        return
-
-    def when_knocked_out(self, pirate):
-        print(str(pirate.name) + " passes out from too much rum. The lad's gonna sleep awhile... - said " + str(self.name) + " the parrot.")
+        print("HE'S DEAD, HE'S DEAAAD!- said " + str(self.parrot_name) + " the parrot.")
 
     def figth_the_dead(self):
-        print("You can't fight the bloody dead! - said " + str(self.name) + " the parrot.")
-
-    def brawl(pirate1, pirate2):
-        print(str(pirate1.name) + " and " + str(pirate2.name) + " are in a damn knife-fight! They gonna bloody curve each other up! - said "
-              + str(self.name) + " the parrot.")
-
-    def fight_till_death(pirate):
-        print(str(pirate.name) + " is dead. He will cause no trouble on the ship anymore. - said " + str(self.name) + " the parrot.")
+        print("YE CANT FIGHT DY BLAADY DEED! - said " + str(self.parrot_name) + " the parrot.")
 
 
-class Ship(Pirate):
+class Ship(object):
     def __init__(self):
-        self.ship_name = "name"
-        self.pirates = 0
-        self.captain = "captain"
-    
+        self.pirates = Pirate('Pirate'+ str(randint(100, 1000)))
+        self.captain_name = self.captain_on_board()
+        self.captain = Captain(self.captain_name)
+        self.ship_name = self.ships_name()
+        self.get_ready()
+        self.score = 0
+
+    def get_ready(self):
+        self.fill_ship()
+        self.captain.how_s_d_captn()
+
     def fill_ship(self):
-        self.crew_on_board()
-        self.captain_on_board()
-        self.ship_name()
-        print(str(self.pirates) + " pirates boarded the " + str(self.ship_name) + ". The captain is " + str(self.captain) + "!")
+        self.crew = self.crew_on_board()
+        print(str(self.crew) + " pirates boarded the " + str(self.ship_name) + 
+              " with the the lead of captain " + str(self.captain_name) 
+              + " ALL PREPARE FOR WAR!")
+        return
 
     def crew_on_board(self):
-        self.pirates = randint(5, 50)
+        return randint(5, 50)
 
     def captain_on_board(self):
-        self.captain = choice(captains_list)
+        return choice(self.captains_list)
 
-    def ship_name(self):
-        self.ship_name = choice(ship_names_list)
+    def ships_name(self):
+        return choice(self.ship_names_list)
+
+    def battle(self):
+        self.score = self.crew - self.captain.rum
+    
 
     captains_list = ['Jack Sparrow', 'Will Turner', 'Larry Ole', 'Davy Jones', 'Blackbeard', 'Barbossa']
-    ship_names_list = ['The Black Pearl', 'Surprise', 'The Sunken Bottle', 'The Empresses Wrath', 'The Horrid Rose', 'The Drunken Executioner']
+    ship_names_list = ['The Black Pearl', 'Surprise', 'The Sunken Bottle',
+                       'The Empresses Wrath', 'The Horrid Rose', 'The Drunken Executioner']
 
 
-Jack = Pirate('Jack Sparrow')
-Bill = Pirate('Will Turner')
-Larry = Pirate('Larry Ole')
-Jones = Pirate('Davy Jones')
-Blackbeard = Pirate('Blackbeard')
-Barbossa = Pirate('Barbossa')
-Coco = Parrot('Coco')
+# jack = Captain('Jack Sparrow')
+# bill = Captain('Will Turner')
+# larry = Captain('Larry Ole')
+# jones = Captain('Davy Jones')
+# blackbeard = Captain('Blackbeard')
+# barbossa = Captain('Barbossa')
+# coco = Parrot('coco')
+# ship = Ship()
 
-Pearl = Ship()
-
-Pearl.fill_ship
+# jack.brawl(larry)
