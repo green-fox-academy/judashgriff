@@ -1,3 +1,4 @@
+import entity 
 
 class Map:
 
@@ -13,6 +14,10 @@ class Map:
         [1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
         [1, 0, 0, 0, 0, 1, 1, 1, 1, 1]
     ]
+    creatures = [entity.Entity(0, 0, "hero-down"),
+                #  entity.Entity(0, 0, "hero-down"),
+                #  entity.Entity(0, 0, "hero-down"),
+                 ]
 
     map2 = [
         [1, 1, 0, 0, 0, 1, 1, 0, 1, 1],
@@ -26,3 +31,4 @@ class Map:
         [1, 1, 0, 1, 0, 0, 1, 1, 1, 1],
         [0, 1, 1, 1, 0, 0, 0, 0, 0, 1]
     ]
+

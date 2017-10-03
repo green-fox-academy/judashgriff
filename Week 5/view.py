@@ -1,60 +1,45 @@
 from tkinter import *
-from map import Map
-from entity import Entity, Hero, Monster
+# from entity import Entity, Hero, Monster
 import time
 
 class View:
-    def __init__(self):
-        self.my_map = Map()
-        self.size = 720
-        self.zero_point = 36
-        self.hud = 150
-        self.root = Tk()
-        self.root.configure(background ='black')
-        self.canvas = Canvas(self.root, width=self.size+self.hud, height=self.size, bg="teal", bd=0)
-        self.canvas.pack(expand=YES, fill=BOTH)
-        self.rect = None
-        self.floor = PhotoImage(file='floor.png')
-        self.wall = PhotoImage(file='wall.png')
-        self.create_map(self.zero_point+self.hud, self.zero_point, 72)
-        self.draw_hero(self.zero_point+self.hud, self.zero_point, 72)
+    def __init__(self, my_map):
+        self.my_map = my_map
+        self.create_canvas()
+        self.models = {"wall": PhotoImage(file='wall.png'),
+                       "floor": PhotoImage(file='floor.png'),
+                       "hero-down": PhotoImage(file='hero-down.png'),
+                       "hero-up": PhotoImage(file='hero-up.png'),
+                       "hero-left": PhotoImage(file='hero-left.png'),
+                       "hero-right": PhotoImage(file='hero-right.png'),
+                       }
+        self.create_map()
         self.root.bind("<KeyPress>", self.on_key_press)
         self.canvas.focus_set()
         # self.fill_hud()
+       
+    def start(self):
         self.root.mainloop()
+    
+    def create_canvas(self):
+        self.root = Tk()
+        self.root.configure(background ='black')
+        self.canvas = Canvas(self.root, width=870, height=720, bg="teal", bd=0)
+        self.canvas.pack(expand=YES, fill=BOTH)
 
-    def create_map(self, x, y, size):
-        for row in range(10):
-            for column in range(10):
-                if self.my_map.map1[column][row] == 0:
-                    self.rect = self.canvas.create_image(x+size*row, y+size*column, image = self.wall)
-                if self.my_map.map1[column][row] == 1:
-                    self.rect = self.canvas.create_image(x+size*row, y+size*column, image = self.floor)
-
-    def draw_hero(self, x, y, size):
-        self.h = PhotoImage(file='hero-down.png')
-        self.hero = self.canvas.create_image(x, y, image = self.h)
-
-    def hero_shape(self, direction):
-        if direction == 'Down':
-            self.h = PhotoImage(file='hero-down.png')
-            return self.h
-        elif direction ==  'Up':
-            self.h = PhotoImage(file='hero-up.png')
-            return self.h
-        elif direction ==  'Right':        
-            self.h = PhotoImage(file='hero-right.png')
-            return self.h
-        elif direction ==  'Left':
-            self.h = PhotoImage(file='hero-left.png')
-            return self.h
+    def draw_game_object(self, x, y, model):
+        size = 72
+        x_offset = 186
+        y_offset = 36
+        return self.canvas.create_image(x * size + x_offset, y * size + y_offset, image = self.models[model])
         
-    def move(self, x, y):
-        
-        for i in range(20):
-            time.sleep(0.0001)
-            self.canvas.update()
-            self.canvas.move(self.hero, x * 72 / 20, y * 72 / 20)
+    def create_map(self):
+        for y in range(10):
+            for x in range(10):
+                if self.my_map[x][y] == 0:
+                    self.draw_game_object(x, y, model="wall")
+                if self.my_map[x][y] == 1:
+                    self.draw_game_object(x, y, model="floor")
 
     def on_key_press(self, e):
         self.coords = self.canvas.coords(self.hero)
@@ -72,11 +57,8 @@ class View:
             self.hero = self.canvas.create_image(self.coords[0], self.coords[1], image = self.h)
             self.move(1, 0)
 
+    # def is_valid_cell(self):
 
 
     # def fill_hud(self):
     #     pass
-
-myView = View()
-
-
