@@ -1,61 +1,59 @@
+from random import randint
 
 class Entity:
-    def __init__(self, x, y, model):
+    def __init__(self, x, y, image):
         self.position_x = x
         self.position_y = y
-        self.model = model
+        self.image = image
+        self.unit_id = None
 
     def move(self, direction):
-        if direction == "Up":
+        if direction == "up":
             self.position_y -= 1
-        elif direction == "Down":
+        elif direction == "down":
             self.position_y += 1
-        elif direction == "Left":
+        elif direction == "left":
             self.position_x -= 1
-        elif direction == "Right":
+        elif direction == "right":
             self.position_x += 1
 
+    def dice(self):
+        return randint(1, 6)
 
 class Hero(Entity):
-    def __init__(self):
-        super().__init__(self)
-        self.draw_hero(self.zero_point+self.hud, self.zero_point, 72)
+    def __init__(self, x, y, image):
+        super().__init__(x, y, image)
 
-    def draw_hero(self, x, y, size):
-        self.h = PhotoImage(file='hero-down.png')
-        self.hero = self.canvas.create_image(x, y, image = self.h)
-
-    def hero_shape(self, direction):
-        if direction == 'Down':
-            self.h = PhotoImage(file='hero-down.png')
-            return self.h
-        elif direction ==  'Up':
-            self.h = PhotoImage(file='hero-up.png')
-            return self.h
-        elif direction ==  'Right':        
-            self.h = PhotoImage(file='hero-right.png')
-            return self.h
-        elif direction ==  'Left':
-            self.h = PhotoImage(file='hero-left.png')
-            return self.h
-        
-    def on_key_press(self, e):
-        self.coords = self.canvas.coords(self.hero)
-        self.facing = self.hero_shape(e.keysym)
-        if ( e.keysym == 'Up' ):
-            self.hero = self.canvas.create_image(self.coords[0], self.coords[1], image = self.h)
-            self.move(0, -1)
-        elif( e.keysym == 'Down' ):
-            self.hero = self.canvas.create_image(self.coords[0], self.coords[1], image = self.h)
-            self.move(0, 1)
-        elif ( e.keysym == 'Left' ):
-            self.hero = self.canvas.create_image(self.coords[0], self.coords[1], image = self.h)
-            self.move(-1, 0)
-        elif( e.keysym == 'Right' ):
-            self.hero = self.canvas.create_image(self.coords[0], self.coords[1], image = self.h)
-            self.move(1, 0)
-
+    def hero_attributes(self):
+        self.hero_stats = {
+            "experience": 0,
+            "level": 1,
+            "health":  20 + 3 * self.dice(),
+            "defense": 2 * self.dice(),
+            "damage": 5 + self.dice()
+        }
+        return self.hero_stats
         
     
 class Monster(Entity):
-    pass
+    def __init__(self, x, y, image):
+        super().__init__(x, y, image)
+
+    def skeleton(self):
+        self.skeleton = {
+            "level": 1,
+            "health":  2 * self.skeleton["level"] * self.dice,
+            "defense": (self.skeleton["level"] / 2 * self.dice) // 1,
+            "damage": self.skeleton["level"] * self.dice
+        }
+        return self.skeleton
+        
+
+    def boss(self):
+        self.boss = {
+            "level": 1,
+            "health":  2 * self.boss["level"] * self.dice + self.dice,
+            "defense": (self.boss["level"] / 2 * self.dice + self.dice / 2) // 1,
+            "damage": self.boss["level"] * self.dice + self.boss["level"]
+        }
+        return self.boss

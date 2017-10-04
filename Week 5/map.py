@@ -1,6 +1,8 @@
-import entity 
-
 class Map:
+
+    def cell_validation(self, x, y):
+        if x >= 0 and y >= 0:
+            return self.map1[y][x] == 1
 
     map1 = [
         [1, 1, 1, 0, 1, 0, 1, 1, 1, 1],
@@ -14,10 +16,6 @@ class Map:
         [1, 1, 1, 1, 0, 0, 1, 1, 0, 1],
         [1, 0, 0, 0, 0, 1, 1, 1, 1, 1]
     ]
-    creatures = [entity.Entity(0, 0, "hero-down"),
-                #  entity.Entity(0, 0, "hero-down"),
-                #  entity.Entity(0, 0, "hero-down"),
-                 ]
 
     map2 = [
         [1, 1, 0, 0, 0, 1, 1, 0, 1, 1],
