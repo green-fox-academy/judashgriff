@@ -28,7 +28,8 @@ class View:
         self.canvas.pack(expand=YES, fill=BOTH)
 
     def hud(self, hero_stats):
-        self.canvas.create_text(10, 10, text="Hero level:  Level " + str(hero_stats["level"]) + "\
+        floor = 1
+        self.canvas.create_text(10, 10, text="Floor: " + str(floor) +  "\n\nHero level:  Level " + str(hero_stats["level"]) + "\
                                 \nHealth points:  " + str(hero_stats["health"]) + "\
                                 \nDefense point:  " + str(hero_stats["defense"]) + "\
                                 \nStrike point:  " + str(hero_stats["damage"]), anchor=NW)

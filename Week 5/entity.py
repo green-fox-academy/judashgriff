@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 
 class Entity:
     def __init__(self, x, y, image):
@@ -8,17 +8,18 @@ class Entity:
         self.unit_id = None
 
     def move(self, direction):
-        if direction == "up":
+        if direction == "Up":
             self.position_y -= 1
-        elif direction == "down":
+        elif direction == "Down":
             self.position_y += 1
-        elif direction == "left":
+        elif direction == "Left":
             self.position_x -= 1
-        elif direction == "right":
+        elif direction == "Right":
             self.position_x += 1
 
     def dice(self):
         return randint(1, 6)
+
 
 class Hero(Entity):
     def __init__(self, x, y, image):
@@ -38,6 +39,11 @@ class Hero(Entity):
 class Monster(Entity):
     def __init__(self, x, y, image):
         super().__init__(x, y, image)
+
+    def random_move(self):
+        moves = ["Up", "Down", "Left", "Right"]
+        return choice(moves)
+
 
     def skeleton(self):
         self.skeleton = {
