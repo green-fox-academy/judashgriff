@@ -1,7 +1,7 @@
 class Map:
 
     def cell_validation(self, x, y):
-        if x >= 0 and y >= 0:
+        if x >= 0 and y >= 0 and x < 10 and y < 10:
             return self.map1[y][x] == 1
 
     map1 = [
