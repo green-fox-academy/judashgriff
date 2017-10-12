@@ -28,6 +28,7 @@ class Entity:
 class Hero(Entity):
     def __init__(self, x, y, image):
         super().__init__(x, y, image)
+        self.enemy_to_kill = None
 
     def stats(self):
         self.hero_stats = {

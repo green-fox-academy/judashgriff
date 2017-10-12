@@ -18,13 +18,12 @@ class Game:
         self.hero = Hero(0, 0, "hero-down")
         self.hero.unit_id  = self.my_view.draw_game_object(0, 0, "hero-down")
         self.movement_count = 0
+        self.delete_dead_creature()
         self.hud()
-        self.enemy_to_kill = None
-        self.status = "adventure"
         self.my_view.start()
 
     def get_random_skeletons(self):
-        skeletons = randint(3, 6)
+        skeletons = randint(20, 25)
         while skeletons > 0:
             x = randint(1, 9)
             y = randint(1, 9)
@@ -45,13 +44,13 @@ class Game:
                                                     unit.image)
 
     def on_key_press(self, e):
-        if self.status == "adventure":
+        if not self.hero.enemy_to_kill:
             if e.keysym == "Up" or  e.keysym == "Down" or e.keysym == "Left" or e.keysym == "Right":
                 self.move_hero(e.keysym)
-                self.check_if_meeting(e.keysym)
-        elif self.status == "combat":
+                self.check_if_meeting()
+        elif self.hero.enemy_to_kill:
             if e.keysym == "space":
-                self.check_if_meeting(e.keysym)
+                self.check_if_meeting()
 
     def move_hero(self, direction):
         if direction == "Up" or direction == "Down" or direction == "Left" or direction == "Right":
@@ -112,16 +111,19 @@ class Game:
             self.validity = self.my_map.cell_validation(guy.position_x + 1, guy.position_y)
         return self.validity
 
-    def check_if_meeting(self, keypress):
+    def check_if_meeting(self):
         for creature in self.creatures:
             if self.hero.position_x == creature.position_x and self.hero.position_y == creature.position_y:
-                self.enemy_to_kill = creature
-                self.status = "combat"
+                self.hero.enemy_to_kill = creature
                 self.my_view.battle_hud(creature.stats())
-                self.combat.battle_on(keypress, self.hero, creature, self.my_view, self.status)
-            elif self.enemy_to_kill != None:
+                self.combat.battle_on(self.hero, creature, self.my_view, self.hero.enemy_to_kill)
+            elif self.hero.enemy_to_kill:
                 self.my_view.canvas.delete(self.my_view.battle_hud_id)
-                self.enemy_to_kill = None
+                self.hero.enemy_to_kill = None
+
+    def delete_dead_creature(self):
+        self.my_view.canvas.delete(self.combat.dead_creature)
+        self.my_view.root.after(100, self.delete_dead_creature)
 
     def hud(self):
         self.my_view.hud(self.hero.stats())
@@ -133,25 +135,15 @@ class Game:
             # Game Over
 
 class Fight_engine():
+    def __init__(self):
+        self.dead_creature = None
 
-    def battle_on(self, keypress, hero, enemy, my_view, status):
-        hero_stats = hero.stats()
-        enemy_stats = enemy.stats()
-        if keypress:
-            if hero.alive == True and enemy.alive == True:
-                self.strike(hero, enemy)
-                hero_strike = hero_stats["damage"] + 2 * randint(1, 6)
-                if hero_strike > enemy_stats["defense"]:
-                    enemy_stats["health"] -= hero_strike - enemy_stats["defense"]
-                    if enemy_stats["health"] < 1:
-                        enemy.alive = False
-                        enemy.delete(enemy.unit_id)
-                    else:
-                        enemy_strike = enemy_stats["damage"] + 2 * randint(1, 6)
-                        if enemy_strike > hero_stats["defense"]:
-                            hero_stats["health"] -= enemy_strike - hero_stats["defense"]
-                            if hero_stats["health"] < 1:
-                                self.game_over(my_view, status)
+    def battle_on(self, hero, enemy, my_view, status):
+        if hero.alive == True and enemy.alive == True:
+            self.strike(hero, enemy)
+            hero_stats = hero.stats()
+            if hero_stats["health"] < 1:
+                self.game_over(my_view, status)
     
     def strike(self, attacker, defender):
         attacker_stats = attacker.stats()
@@ -161,7 +153,10 @@ class Fight_engine():
             defender_stats["health"] -= attacker_strike - defender_stats["defense"]
             if defender_stats["health"] < 1:
                 defender.alive = False
-                defender.delete(defender.unit_id)
+                self.dead_creature = defender.unit_id
+            else:
+                self.strike(defender, attacker)
+
 
     def game_over(self, my_view, status):
         status = my_view.game_over()
