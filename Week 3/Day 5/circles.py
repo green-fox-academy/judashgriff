@@ -16,7 +16,7 @@ def get_triangle_side(height):
 
 
 def draw_fractal(x,y,size):
-    time.sleep(0.001)
+    time.sleep(0.1)
     canvas.update()
     if size < 20:
         return

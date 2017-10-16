@@ -12,9 +12,9 @@ def box(x,y,size):
 
 
 def draw_fractal(x,y,size):
-    # time.sleep(0.00000000001)
-    # canvas.update()
-    if size < 1.5:
+    time.sleep(0.00000000001)
+    canvas.update()
+    if size < 3:
         return
     else:
         box(x, y, size)

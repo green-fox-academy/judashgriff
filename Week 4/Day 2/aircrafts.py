@@ -7,7 +7,7 @@ class Aircraft(object):
     def flight(self):
         if self.current_ammo <= 0:
             damage = self.damage_counter()
-            print("The aircraft is out of ammo. It will return to refuel. It caused " + str(damage) + " damage.")
+            print("The " + str(self.name) + " is out of ammo. It will return to refuel. It caused " + str(damage) + " damage.")
 
     def damage_counter(self):
         damage = self.current_ammo * self.base_damage
@@ -22,9 +22,8 @@ class Aircraft(object):
               + str(self.current_ammo) + " ammo. The ammo stock has " + str(ammo_stock) + " units of ammunition remaining.")
         
     def getStatus(self):
-        print("Type: " + self.__class__.__name__ + ", Ammo: " + str(self.current_ammo) + ", Base damage: " 
+        print(str(self.name) + ": Type: " + self.__class__.__name__ + ", Ammo: " + str(self.current_ammo) + ", Base damage: " 
               + str(self.base_damage) + ", ALL damage: " + str(self.max_ammo * self.base_damage))
-
 
 
 class F16(Aircraft):
@@ -38,17 +37,14 @@ class F16(Aircraft):
     current_ammo = 0
 
 
-
 class F35(Aircraft):
     def __init__(self, name):
         super().__init__()
         self.name = name
-        self.max_ammo = 8
-        self.base_damage = 30
+        self.max_ammo = 12
+        self.base_damage = 50
 
     current_ammo = 0
-
-
 
 class Carrier(object):
     def __init__(self, name, ammo, health):
@@ -56,21 +52,23 @@ class Carrier(object):
         self.aircrafts = []
         self.store_ammo = ammo
         self.carrier_health = health
-        self.f16 = F16()
-        self.f35 = F35()
+        self.f16 = F16(choice(aircraft_names))
+        self.f35 = F35(choice(aircraft_names))
 
     def add_aircraft(self, type_of):
-        if type_of == F16 or type_of == F35:
-            self.aircrafts.append(type_of)
-        for aircraft in self.aircrafts:
-            print(aircraft)
+        if type_of == "F16" or type_of == "F35":
+            d = {}
+            d[choice(aircraft_names)] = type_of
+            self.aircrafts.append(d)
+        print(self.aircrafts)
 
     def fill(self):
         for aircraft in self.aircrafts:
             if aircraft == F16:
-                aircraft = F16(choice(aircraft_names))
+                aircraft = F16(aircraft.keys)
             elif aircraft == F35:
                 aircraft = F35(choice(aircraft_names))
+
 
 
 
@@ -84,13 +82,13 @@ freedom = F16('Freedom')
 serenity = F35('Serenity')
 
 freedom.flight()
-freedom.refill(30)
+serenity.refill(30)
 
 freedom.getStatus()
 
 justice = Carrier('Justice', 600, 4000)
 
-justice.add_aircraft(F16)
-justice.add_aircraft(F16)
-justice.add_aircraft(F35)
-justice.add_aircraft(F35)
+justice.add_aircraft("F16")
+justice.add_aircraft("F16")
+justice.add_aircraft("F35")
+justice.add_aircraft("F35")

@@ -1,0 +1,15 @@
+.yellow{
+    margin: 5%;
+    display: flex;
+    background-color: gold;
+    height: 220px;
+    width: 500px;
+    justify-content: center;
+}
+
+.purple{
+    background-color: purple;
+    width: 60px;
+    height: 60px;
+    align-self: center;
+}
