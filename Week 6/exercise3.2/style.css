@@ -1,18 +1,19 @@
 .container{
-    margin: 5%;
+    /* box-sizing: border-box; */
     display: flex;
     background-color: gold;
     height: 300px;
-    width: 90%;
-    align-content: center;  
+    flex-grow: 1;
+    margin: 3%;
+    padding: 0;
+    justify-content: space-between;
 }
 
 .item{
     background-color: #B02AFF;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     align-self: center;
     list-style: none;
-    margin: 5px;
 }
 
