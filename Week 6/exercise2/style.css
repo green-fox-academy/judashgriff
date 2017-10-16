@@ -1,28 +1,15 @@
-.container {
-    display: flex;
-    /* align-items: center; */
-    flex-direction: column;
-    align-items: stretch;
-    width: 400px;
-    height: 550px;
-}
-  
-.item {
-    flex-grow: 1;
-}
-
-.green{
-    background-color: green;
-
-}
-
 .yellow{
-    flex-grow: 2;
-    background-color: yellow;
-    order: 1;
+    margin: 5%;
+    display: flex;
+    background-color: gold;
+    height: 220px;
+    width: 500px;
+    justify-content: center;
 }
 
 .purple{
-    background-color: purple;
-    
+    background-color: #B02AFF;
+    width: 60px;
+    height: 60px;
+    align-self: center;
 }
