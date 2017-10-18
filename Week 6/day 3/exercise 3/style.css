@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    /* align-items: center; */
+    /* align-items: stretch; */
+    width: 100%;
+    height: 100px;
+}
+
+.box {
+    width: 40%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #2F3060;
+}
+
+.button {
+    width: 100px;
+    height: 45px;
+    border-radius: 6px;
+    text-align: center;
+    margin: auto;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.green {
+    background-color: #1aa752;
+    box-shadow: 0px 3px 2px rgba(18, 114, 55, 1);
+}
+
+.green:hover {
+    background-color: #20c760;
+}
+
+.green:active {
+    background-color: #109e44;
+}
+
+.red {
+    background-color: #D13F2F;
+    box-shadow: 0px 3px 2px rgba(128, 37, 29, 1);
+}
+
+.red:hover {
+    background-color: rgb(235, 72, 57);
+}
+
+.red:active {
+    background-color: rgb(181, 42, 30);
+}
+
+.light {
+    background-color: #00AEED;
+    box-shadow: 0px 3px 2px rgba(4, 139, 184, 1);
+}
+
+.light:hover {
+    background-color: rgb(62, 207, 255);
+}
+
+.light:active {
+    background-color: rgb(5, 138, 182);
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
