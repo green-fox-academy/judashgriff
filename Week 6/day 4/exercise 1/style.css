@@ -1,0 +1,31 @@
+.box {
+    display: grid;
+    height: 150px;
+    grid-template-columns: repeat(4, 1fr);
+    border: 10px purple;
+    background-color: purple;
+    grid-gap: 10px;
+    border: 10px purple solid;
+}
+
+.section {
+    background-color: lightgreen;
+}
+
+.box .big {
+    grid-column: span 2;
+}
+
+.box .small {
+    background-color: gold;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: none;
+    text-align: center;
+    margin: auto;
+    transform: translateY(200%);
+}
