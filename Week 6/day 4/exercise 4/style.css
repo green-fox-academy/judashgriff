@@ -56,22 +56,54 @@ body {
     height: 80%;
     width: 88%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 7fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 7fr 7fr 2fr;
     grid-gap: 6px;
     padding: 1% 6% 6% 6%;
+    grid-template-areas: "green1 green2 green2"
+                         "green3 green4 green5"
+                         "footer footer footer";
 }
 
-.main .sidebar {
+.main .green1 {
+    grid-area: green1;
+}
+
+.main .green2 {
+    grid-area: green2;
+}
+
+.main .green3 {
+    grid-area: green3;
+}
+
+.main .green4 {
+    grid-area: green4;
+}
+
+.main .green5 {
+    grid-area: green5;
+}
+
+.main .gr {
     background-color: #51D400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.main .central {
-    grid-column: 2 / 4;
-    background-color: #FFD62A;
+.red {
+    margin: none;
+    width: 60%;
+    height: 30%;
+    background-color: red;
 }
 
 .main .footer {
     grid-column: 1 / 4;
     background-color: #CCCCCC;
+}
+
+p {
+    margin: 0 20px;
 }

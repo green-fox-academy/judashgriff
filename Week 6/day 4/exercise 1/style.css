@@ -2,7 +2,6 @@
     display: grid;
     height: 150px;
     grid-template-columns: repeat(4, 1fr);
-    border: 10px purple;
     background-color: purple;
     grid-gap: 10px;
     border: 10px purple solid;
