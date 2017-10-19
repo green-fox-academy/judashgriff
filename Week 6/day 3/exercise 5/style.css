@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    margin: auto;
+    margin-top: 2rem;
+    width: 60%;
+    height: 500px;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.white {
+    width: 140px;
+    height: 140px;
+    border-radius: 4px;
+    background-color: #ddd;
+    transform: rotateZ(45deg);
+}
+
+.white::before {
+    content: "HOVER";
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    position: absolute;
+    margin: auto;
+    align-self: center;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    transition: 0.6s;
+    transform: rotate(-45deg) translateX(-20px) translateY(60px);
+}
+
+.white::after {
+    position: absolute;
+    margin: auto;
+    align-self: center;
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 4px;
+    border: 3px solid rgb(218, 64, 64);
+    transition: 0.8s;
+}
+
+.center:hover {
+    cursor: pointer;
+}
+
+.border:hover {
+    transform: rotate(45deg);
+}
+
+p:hover {
+    color: rgb(218, 64, 64);
+}
