@@ -42,7 +42,7 @@
     transform: rotate(-45deg) translateX(-20px) translateY(60px);
 }
 
-.white::after {
+.border {
     position: absolute;
     margin: auto;
     align-self: center;
@@ -58,10 +58,10 @@
     cursor: pointer;
 }
 
-.border:hover {
+.center:hover > .border {
     transform: rotate(45deg);
 }
 
-p:hover {
+.center:hover > .white::before {
     color: rgb(218, 64, 64);
 }

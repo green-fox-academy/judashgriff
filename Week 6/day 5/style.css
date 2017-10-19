@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 900px;
+}
+
+.header {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: #eee;
+    border-bottom: solid #aaa 1px;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    position: fixed;
+}
+
+#header_menu {
+    width: 40%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-padding-start: 15px;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+#header_menu a li {
+    list-style: none;
+    height: 100%;
+    width: auto;
+    border: solid gray 1px;
+    border-radius: 4px;
+    background-color: rgb(169, 163, 163);
+    padding: 5px 5px 0 5px;
+    box-shadow: 1px 2px 2px rgba(255, 255, 255, 0.6) inset, 3px 3px 2px rgba(240, 240, 240, 1);
+}
+
+#header_menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#header_menu a:hover, #header_menu a li:hover {
+    border-radius: 4px;
+    background-color: rgb(141, 141, 141);
+}
+
+.header .burger {
+    display: none;
+}
+
+.drop_down_menu {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.content {
+    width: 50%;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: top;
+    padding-top: 20px;
+    flex-direction: column;
+}
+
+.main {
+    height: 80%;
+    width: 88%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 7fr 7fr 2fr;
+    grid-gap: 6px;
+    padding: 1% 6% 6% 6%;
+    grid-template-areas: "green1 green2 green2"
+    "green3 green4 green5"
+    "footer footer footer";
+}
+
+.main .green1 {
+    grid-area: green1;
+}
+
+.main .green2 {
+    grid-area: green2;
+}
+
+.main .green3 {
+    grid-area: green3;
+}
+
+.main .green4 {
+    grid-area: green4;
+}
+
+.main .green5 {
+    grid-area: green5;
+}
+
+.main .gr {
+    background-color: #51D400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.red {
+    margin: none;
+    width: 60%;
+    height: 30%;
+    background-color: red;
+}
+
+.main .footer {
+    grid-column: 1 / 4;
+    background-color: #CCCCCC;
+}
+
+p {
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 700px) {
+
+    .drop_down_menu {
+        
+    }
+}
