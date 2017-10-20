@@ -3,6 +3,9 @@
     padding: 0;
     font-family: 'Karla', sans-serif;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
 /* h3, h4, h5, h6 {
@@ -52,21 +55,18 @@ header {
 }
 
 .main-header li {
-    list-style: none;
     float: left;
 }
 
 .main-header a {
-    text-decoration: none;
     color: black;
 }
 
 .cart {
-    background-color: #bbb;
+    background-color: #e9e9e9;
     padding: 20px;
     align-items: center;
-    width: 90px;
-    border-left: solid 1px #aaa;
+    width: 8.5rem;
 }
 
 .cart a p {
@@ -78,33 +78,81 @@ header {
 }
 
 .main-banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 550px;
 }
 
 .main-banner > img {
     float: left;
+    display: inline;
 } 
 
 .after-image {
-    width: 35%;
-    height: 100%;
     float: right;
+    width: 35%;
+    height: 550px;
 }
 
 #readers{
-    height: 100%;
-    padding: 5%;
+    height: 87%;
+    padding: 15%;
     background-color: #1f1f1f;
+    line-height: 1.5rem;
 }
 
-#readers h4, #readers p {
+#readers h4, #readers p, #readers h1 {
     color: #e6e6e6;
+}
+
+#readers h1 {
+    font-family: 'Droid Serif', serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 3rem;
+    height: 170px;
+    width: 10rem;
+    text-align: left;
+    border-bottom: solid #e6e6e6 5px;
 }
 
 #readers h4:first-of-type {
     text-transform: uppercase;
     color: #707070;
+    letter-spacing: 0.6rem;
+    height: 40px;
+}
+
+#readers p {
+    padding-top: 20px;
+    height: 150px;
+    line-height: 1.8rem;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+#readers h4:last-of-type {
+    display: inline;
+    margin-right: 20px; 
+    color: #ccc;
+}
+
+#navigation {
+    height: 13%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    padding: 25px 40px;
+    justify-content: space-between;
+    background-color: #fafafa;
+    border-bottom: solid #ddd 1px;
+}
+
+#navigation div:first-of-type {
+    border-right: solid #ddd 1px;
 }
