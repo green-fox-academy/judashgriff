@@ -12,8 +12,8 @@
 
 let size = 8
 
-if (size % 2 == 1){
-    size = size-1
+if (size % 2 == 1) {
+    size = size-1;
 }
 
 for (let i = 1; i <= size; i++) {
