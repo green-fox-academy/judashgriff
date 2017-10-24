@@ -1,8 +1,10 @@
-
 'use strict';
 
-let favoriteNumber = 8
-// Store your favorite number in a variable (as a number)
-// And print it like this: 'My favorite number is: 8'
+// Swap the values of these variables
+let a = 123;
+let b = 526;
 
-console.log("My favourite number is: " + favoriteNumber)
+[a, b] = [b, a]
+
+console.log(a);
+console.log(b);
