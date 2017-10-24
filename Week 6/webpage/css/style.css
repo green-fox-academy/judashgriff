@@ -14,7 +14,7 @@ body {
     margin: 0 auto;
     padding: 0 4%;
     background: linear-gradient(to right,
-               #ddd 39%, #e5e5e5 41%);
+               #ddd 39%, #e9e9e9 41%);
 }
 
 
@@ -78,7 +78,7 @@ header {
 } 
 
 .cart {
-    background-color: #e9e9e9;
+    background-color: #efefef;
     padding: 20px;
     align-items: center;
     width: 8.5rem;
@@ -86,6 +86,10 @@ header {
 
 .cart a p {
     float: left;
+    animation-name: shaking;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
     transition: 0.5s;
 }
 
@@ -95,6 +99,10 @@ header {
 
 .cart a img {
     float: right;
+}
+
+@keyframes shake {
+
 }
 
 
@@ -138,7 +146,7 @@ header {
     border-bottom: solid #e6e6e6 5px;
 }
 
-#readers h4:first-of-type {
+#readers > div > h4 {
     text-transform: uppercase;
     color: #707070;
     letter-spacing: 0.6rem;
@@ -157,6 +165,7 @@ header {
     display: inline;
     margin-right: 20px; 
     color: #ccc;
+    font
 }
 
 .after-image a {
@@ -174,6 +183,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#navigation a {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #navigation div {
@@ -212,7 +227,7 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 30%);
     grid-template-rows: repeat(3, 420px);
-    grid-gap: 0.4rem;
+    grid-gap: 1rem;
 }
 
 #stories p {
@@ -221,54 +236,52 @@ header {
 
 .story {
     overflow: hidden;
-    width: 100%;
-    height: 100%;
 }
 
-.skate {
-    height: 100%;
-    width: 100%;
-}
 
-.skate {
-    height: 100%;
-    width: 100%;
-}
-
-.one span {
-    background-image: url("assets/skate1.png");
+.one {
+    background-image: url("../assets/skate1.png");
 }
 
 .two  {
-    background-image: url("assets/skate2.png");
+    background-image: url("../assets/skate2.png");
 }
 
 .three {
-    background-image: url("assets/skate3.png");
+    background-image: url("../assets/skate3.png");
+    background-position: ;
 }
 
 .four {
-    background-image: url("assets/skate-big.png");
+    background-image: url("../assets/skate-big.png");
 }
 
 .five {
-    background-image: url("assets/skate4.png");
+    background-image: url("../assets/skate4.png");
 }
 
-.small > img {
-    width: 150%;
-    padding: 0 5%;
+.small  {
+    padding: 1 5%;
     overflow: hidden;
-    
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: top center;
+
 }
 
-.big > img {
-    width: 350%;
+.big {
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: top center;
     padding: 0 5%;
     overflow: hidden;
     grid-column: span 2;
 }
 
+.stories .five {
+    background-size: 550px;
+    
+}
 
 
     /* F O O T E R */
@@ -300,12 +313,21 @@ footer div:first-of-type, footer div:nth-of-type(2) {
     padding: 0 1.4rem;
 }
 
-#footer-list1 li, #footer-list2 li {
+.footer-link, .footer-img {
     font-size: 0.7rem;
+    transition: 0.4s;
 }
 
-#footer-list2 li a {
+#footer-list2 a {
     margin-right: 1rem;
+}
+
+.footer-link:hover {
+    color: lightskyblue;
+}
+
+.footer-img:hover {
+    filter: brightness(140%);
 }
 
 footer > div {
