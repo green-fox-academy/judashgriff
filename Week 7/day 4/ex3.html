@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+<body>
+  <p class="apple">apple</p>
+  <p class="balloon">banana</p>
+  <p class="cat">car</p>
+  <p class="dog">dolphin</p>
+
+  <!-- You can work in the html or in a separate js file. Like: -->
+  <script>
+    "use strict"
+    
+    let par = document.querySelectorAll("p");
+    console.log(par[0].textContent);
+    par.forEach(function(p, i) {
+        p.textContent = par[3].textContent;
+    });
+  
+  </script>
+
+</body>
+</html>
