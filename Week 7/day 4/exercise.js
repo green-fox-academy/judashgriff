@@ -1,4 +1,5 @@
-'use strict';
+'use strict'
+
 var king = document.getElementById('b325');
 console.log('king', king);
 var lamplighter = document.querySelector('.b329');

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+<body>
+  <h1>Original Content</h1>
+  <p>Some more text</p>
+  <p class="other">Even more text</p>
+  <p class="result">Here comes something new</p>
+
+  <!-- You can work in the html or in a separate js file. Like:
+  1. Alert the content of the heading.
+  2. Write the content of the first paragraph to the console.
+  3. Alert the content of the second paragraph.
+  4. Replace the heading's content with 'New content'.
+  5. Replace the last paragraph's content with the first paragraph's content.-->
+  <script>
+    "use strict"
+
+    let heading = document.querySelector("head");
+    alert(heading.innerHTML); 
+    let par = document.querySelectorAll("p");
+    console.log(par[0]);
+    alert(par[1])
+    let head = document.getElementsByTagName("h1");
+    console.log(head);
+    head[0].textContent = "New content";
+    par[2].textContent = par[0].textContent;
+  </script>
+</body>
+</html>
