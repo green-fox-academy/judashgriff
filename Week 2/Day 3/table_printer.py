@@ -78,13 +78,12 @@ def header(linear, first, second, third):
 
 def content(linear, first, second, third):
     for each in ingredients:
-        line = ""
-        line += "| "
+        line = "| "
         line += each['name']
         line += (first - len(each['name']) - 1) * " " + "| "
         if each['needs_cooling'] is True: 
             line += "Yes" + (second - 4) * " " + "| "
-        elif each['needs_cooling'] is False:
+        else:
             line += "No" + (second - 3) * " " + "| "
         if each['in_stock'] > 0:
             line += str(each['in_stock'])

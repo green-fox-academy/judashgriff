@@ -4,25 +4,30 @@
 
 body {
     width: 100%;
-    height: 770px;
+    height: 600px;
     background: radial-gradient(
               rgb(250, 250, 250) 50%, 
               rgb(160, 160, 160));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+            /* T I T L E  */
+
 #title_container {
-    width: 1300px;
-    padding: 4rem;
+    width: 100%;
+    padding: 2rem;
     display: flex;
-    justify-content: center;
 }
 
 #title {
     text-transform: uppercase;
     font-size: 3em;
     margin: auto;
-    align-self: center;
 }
+
+        /* M A I N   C O N T E N T  */
 
 .main {
     width: 100%;
@@ -31,12 +36,13 @@ body {
 }
 
 #big {
-    width: 60%;
-    height: 300px;
+    width: 75%;
+    height: 340px;
     display: grid;
     grid-template-columns: 1fr 15fr 1fr;
     grid-template-areas: "left center right";
     box-shadow: 3px 3px 12px rgba(60, 60, 60, 1);
+    position: relative;
 }
 
 .left {
@@ -49,6 +55,27 @@ body {
 
 #center {
     grid-area: "center";
+    background-image: url(assets/avalokitesvara.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    align-items: flex-end;
+}
+
+.text {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0.5;
+    color: #fff;
+    height: auto;
+    margin: none;
+    padding: 0 0.5rem;
+}
+
+.text > h3, .text > p {
+    margin: 0.6rem;
+    line-height: 1.2rem;
 }
 
 .arrow {
@@ -56,4 +83,63 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: ease-out 0.3s;
+}
+
+.arrow:hover {
+    filter: brightness(95%);
+}
+
+        /* S E L E C T O R S  */
+
+#selectors {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+}
+
+.pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #a0a0a0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+    padding: 3px;
+}
+
+.pic > a {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+.img1 a {
+    background-image: url(assets/avalokitesvara.png);
+}
+
+.img2 a {
+    background-image: url(assets/akashagarbha.png);
+}
+
+.img3 a {
+    background-image: url(assets/amitabha.png);
+}
+
+.img4 a {
+    background-image: url(assets/koan_yin.png);
+}
+
+.img5 a {
+    background-image: url(assets/padmasambhava.png);
+}
+
+.img6 a {
+    background-image: url(assets/green_tara.png);
+}
+
+.img7 a {
+    background-image: url(assets/white_tara.png);
 }
