@@ -90,10 +90,14 @@ body {
     filter: brightness(95%);
 }
 
+.arrow:active {
+    
+}
+
         /* S E L E C T O R S  */
 
 #selectors {
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: space-between;
     margin-top: 0.8rem;
@@ -138,8 +142,4 @@ body {
 
 .img6 a {
     background-image: url(assets/green_tara.png);
-}
-
-.img7 a {
-    background-image: url(assets/white_tara.png);
 }
