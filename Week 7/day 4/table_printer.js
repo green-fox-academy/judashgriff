@@ -25,20 +25,25 @@ const ingredients = [
 	{ "name": "soda", "in_stock": 0, "needs_cooling": true }
 ]
 
-let printLine = function() {
+let printLine = function(length) {
     let section1 = "+";
+    section1 += addLines(length);
+    section1 += addLines(15);
+    section1 += addLines(10);
+    return section1;
+}
+   
+let theLength = function() {
     let length = 0;
     ingredients.forEach(function(element) {
         if (length < element["name"].length) {
             length = element["name"].length;
         };
     });
-    section1 += addLines(length);
-    section1 += addLines(15);
-    section1 += addLines(10);
-    return section1;
+    length += 2;
+    return length;
 }
-    
+
 let addLines = function(num) {
     let section = "";
     for (let i = 0; i < num; i++) {
@@ -48,11 +53,52 @@ let addLines = function(num) {
     return section;
 }
 
+let printHead = function(length) {
+    let head = "|"
+    head += addContent("Ingridient", length);
+    head += addContent("Needs cooling", 15);
+    head += addContent("In stock", 10);
+    return head;
+}
 
-let print = function() {
-    let line = printLine();
-    
+let addContent = function(text, length) {
+    let content = " ";
+    content += text;
+    for (let i = content.length; i < length; i++) {
+        content += " ";
+    };
+    content += "|"
+    return content;
+}
+
+let addBody = function(element, length) {
+    let body = "|";
+    body += addContent(element["name"], length);
+    if (element["needs_cooling"] === true) {
+        body += addContent("Yes", 15);
+    } else {
+        body += addContent("No", 15);
+    };
+    if (element["in_stock"] > 0) {
+        body += addContent(element["in_stock"], 10);
+    } else {
+        body += addContent("-", 10);
+    }
+    return body;
+} 
+
+let printBoss = function() {
+    let length = theLength();
+    let line = printLine(length);
+    let head = printHead(length);
+    console.log(line);
+    console.log(head);
+    console.log(line);
+    ingredients.forEach(function(element){
+        let body = addBody(element, length);
+        console.log(body);
+    });
     console.log(line);
 }
 
-print();
+printBoss();
