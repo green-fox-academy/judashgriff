@@ -12,13 +12,7 @@
         
 let images = [
     {"title": "Avalokiteśvara",
-    "text": "Avalokiteśvara is a bodhisattva \
-    who embodies the compassion of all Buddhas. \
-    She is vastly renowned in Southeast Asia, China \
-    and Tibet with different names and forms. \
-    In the picture above is \
-    easy to see her most known and common form \
-    with the 1000 arms and 500 heads.",
+    "text": "Avalokiteśvara is a bodhisattva who embodies the compassion of all Buddhas. She is vastly renowned in Southeast Asia, China and Tibet with different names and forms. In the picture above is easy to see her most known and common form with the 1000 arms and 500 heads.",
     "url": "assets/avalokitesvara.png"},
 
     {"title": "Ākāśagarbha",
@@ -76,17 +70,62 @@ let images = [
     "url": "assets/white_tara.png"}
 ]
 
-let leftArrow = document.querySelector(".left img");
-let righrArrow = document.querySelector(".right img");
+let leftArrow = document.querySelector(".left");
+let righrArrow = document.querySelector(".right");
+
 let mainPic = document.querySelector("#center");
 let mainHead = document.querySelector(".text h3");
 let mainText = document.querySelector(".text p");
 
 let selector = document.querySelector("#selectors");
 
+let current = 0;
 
+let i = 0;
+images.forEach(function(element){
+    let newPic = document.createElement("span");
+    newPic.classList.add("pic");
+    newPic.classList.add("img" + [i]);
+    let link = document.createElement("a");
+    link.style.backgroundImage = "url(" + images[i]['url'] + ")"
+    newPic.appendChild(link);
+    selector.appendChild(newPic);
+    i += 1; 
+});
 
-leftArrow.addEventListener("mousedown", function(){
-    let name = "img";
+mainText.textContent = images[current]["text"];
+mainPic.style.backgroundImage = 'url(' + images[current]["url"] + ')';
+mainHead.textContent = images[current]["title"];
 
-})
+leftArrow.addEventListener("click", function(){
+    if (current === 0) {
+        current = images.length -1;
+    } else {
+        current -= 1;
+    };
+    refresh();
+});
+
+righrArrow.addEventListener("click", function(){
+    if (current === images.length -1) {
+        current = 0;
+    } else {
+        current += 1;
+    };
+    refresh();
+});
+
+function refresh() {
+    mainHead.textContent = images[current]["title"];
+    mainText.textContent = images[current]["text"];
+    mainPic.style.backgroundImage = 'url(' + images[current]["url"] + ')';
+};
+
+let body = document.querySelector("body");
+
+mainPic.addEventListener("click", function(){
+    mainPic.classList.toggle("shown");
+    body.classList.toggle("dark");
+    mainHead.classList.toggle("hidden");
+    mainText.classList.toggle("hidden");
+});

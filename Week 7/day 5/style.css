@@ -13,6 +13,12 @@ body {
     align-items: center;
 }
 
+.dark {
+    background: radial-gradient(
+              rgb(120, 120, 120) 50%, 
+              rgb(30, 30, 30));
+}
+
             /* T I T L E  */
 
 #title_container {
@@ -55,12 +61,23 @@ body {
 
 #center {
     grid-area: "center";
-    background-image: url(assets/avalokitesvara.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center center;
     display: flex;
     align-items: flex-end;
+}
+
+#center:hover {
+    cursor: pointer;
+}
+
+.shown {
+    position: absolute;
+    top: -100px;
+    height: 700px;
+
+    margin: auto;
 }
 
 .text {
@@ -78,28 +95,42 @@ body {
     line-height: 1.2rem;
 }
 
+.hidden {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .arrow {
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: ease-out 0.3s;
+    transition: ease-in 0.1s;
 }
 
 .arrow:hover {
-    filter: brightness(95%);
+    filter: brightness(90%);
+    cursor: pointer;
 }
 
 .arrow:active {
-    
+    box-shadow: 2px 6px 14px rgb(60, 60, 60);
+}
+
+.left:active {
+    padding-right: 5px;
+}
+
+.right:active {
+    padding-left: 5px;
 }
 
         /* S E L E C T O R S  */
 
 #selectors {
-    width: 35%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 0.8rem;
 }
 
@@ -110,6 +141,14 @@ body {
     background-color: #a0a0a0;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
     padding: 3px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.pic:hover {
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.9);
+    margin-top: 3px;
+    cursor: pointer;
 }
 
 .pic > a {
@@ -118,28 +157,4 @@ body {
     height: 44px;
     background-size: cover;
     background-position: center bottom;
-}
-
-.img1 a {
-    background-image: url(assets/avalokitesvara.png);
-}
-
-.img2 a {
-    background-image: url(assets/akashagarbha.png);
-}
-
-.img3 a {
-    background-image: url(assets/amitabha.png);
-}
-
-.img4 a {
-    background-image: url(assets/koan_yin.png);
-}
-
-.img5 a {
-    background-image: url(assets/padmasambhava.png);
-}
-
-.img6 a {
-    background-image: url(assets/green_tara.png);
 }
