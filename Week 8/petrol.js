@@ -20,12 +20,11 @@ let car = {
         if (amt >= toFuel) {
             this.petrolLevel += toFuel;
             amt -= toFuel;
-            return amt
         } else {
             this.petrolLevel += amt;
             amt = 0;
-            return amt
         }
+        return amt
     }
 }
 
