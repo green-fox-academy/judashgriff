@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+</head>
+<body>
+
+    <script src="users.js"></script>
+    <script>    
+        // The users variables comes from the file included above
+        console.log(users.length)
+        // First select from the list the users whose bitcoin address AND email address is provided
+        // Then return a list of users. Each user should be in the following format:
+        // singleUser = {
+        //     full_name: "Elite Hacker",
+        //     addresses: {
+        //         bitcoin: 'ligehs98wtz4u9ötuw...',
+        //         email: 'hello@example.com'
+        //     }
+        // }
+        // Do not use for or forEach
+    
+        let list = [];
+        users.map(function(user) {
+            if (user["bitcoin_address"] !== null && user["email"] !== null) {
+                list.push(user);
+            }
+        })
+
+        let listOfUsers = [];
+        list.map(function(user, i) {
+            temp = {};
+            if (user["first_name"] !== null && user["last_name"] !== null) {
+                temp["full_name"] = user["first_name"] + " " + user["last_name"];
+            } else {
+                temp["full_name"] = user["first_name"];
+            }
+            temp["addresses"] = {};
+            temp["addresses"]["bitcoin"] = user["bitcoin_address"];
+            temp["addresses"]["email"] = user["email"];
+            listOfUsers.push(temp);
+        })
+
+        console.log(listOfUsers)
+
+        let body = document.querySelector("body");
+
+        listOfUsers.map(function(user) {
+            let newH4 = document.createElement("h4");
+            newH4.textContent = user["full_name"];
+            let newP = document.createElement("p");
+            newP.textContent = "addresses: bitcoin: " + user["addresses"]["bitcoin"] + "; email: " + user["addresses"]["email"];
+            body.appendChild(newH4);
+            body.appendChild(newP);
+        })
+
+    </script>
+</body>
+</html>
