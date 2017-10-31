@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>Click me!</button>
+    
+
+    <script>
+        let timeCounter = false;
+        
+
+        let butt = document.querySelector("button");
+        let body = document.querySelector("body");
+        function addP() {
+            let pTag = document.createElement("p");
+            pTag.textContent = "5 seconds ellapsed and clicked 3 times";
+            body.appendChild(pTag);
+        }
+
+        let counter = 0
+        
+        function check() {
+            if (counter > 2 && timeCounter === true) {
+                addP();
+            }
+        }
+
+        function timer () {
+            setTimeout (setTimeCounter, 5000);
+        }
+
+        function setTimeCounter () {
+            timeCounter = true;
+            check();
+        }
+
+        butt.onclick = function () {
+            if (counter === 0) {
+                timer()
+            }
+            counter++;
+            check()
+        };
+
+
+
+    </script>
+
+</body>
+</html>
