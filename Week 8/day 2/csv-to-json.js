@@ -1,3 +1,5 @@
+'use strict'
+
 const data = `Phasianus colchicus;9442;Fuscia
 Pedetes capensis;2869;Puce
 Recurvirostra avosetta;4285;Fuscia
@@ -30,3 +32,17 @@ Loris tardigratus;725;Orange`;
 
 // Remove all duplicates based on their name, always keep the first one
 // Don't use for or forEach
+
+let result = []
+
+let arr = data.split("\n");
+let mapped = arr.map(function(line, i){
+    let temp = {}
+    let separated = line.split(";")
+    // console.log(separated)
+    temp["name"] = separated[0];
+    temp["id"] = separated[1];
+    temp["color_code"] = separated[2];
+    result.push(temp);
+})
+console.log(result);
