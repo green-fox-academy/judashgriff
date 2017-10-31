@@ -43,6 +43,15 @@ let mapped = arr.map(function(line, i){
     temp["name"] = separated[0];
     temp["id"] = separated[1];
     temp["color_code"] = separated[2];
-    result.push(temp);
-})
+    let inTheResult = false;
+    result.map(function(item) {
+        if (item["name"] === temp["name"]) {
+            inTheResult = true;
+        };
+    });
+    if (inTheResult === false) {
+        result.push(temp);
+    };
+});
 console.log(result);
+console.log(result.length);
