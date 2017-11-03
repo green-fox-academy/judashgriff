@@ -16,6 +16,7 @@
     
         * {
             margin-bottom: 20px;
+            margin-left: 20px;
         }
 
     </style>
@@ -30,6 +31,12 @@
     btn.addEventListener("click", function() {
         let str = document.querySelector("#input").value;
         console.log(str)
+        if (document.querySelector("p")) {
+            let element = document.querySelector("p");
+            document.body.removeChild(element);
+            let map = document.querySelector("iframe")
+            document.body.removeChild(map);
+        }
         getCoords(str)
     })
 
@@ -42,25 +49,39 @@
         request.onreadystatechange = function() {
             if(request.readyState == 4) {
                 let location = JSON.parse(request.responseText).Results[0]
-                makeMap(location);
-            } else {
-                errMess()
+                getLocation(location);
             }
         }
     request.send();
     }
 
-    function makeMap(location) {
+    function getLocation(location) {
         console.log(location);
         let coords = document.createElement("p");
-        coords.textContent = location.ll;
-        document.body.appendChild(coords);
+        if (location == undefined) {
+            errMess()
+        } else {
+            if (location.ll == "-9999.000000 -9999.000000") {
+                coords.textContent = "It is a country."
+            } else {
+                coords.textContent = location.ll;
+            }
+            document.body.appendChild(coords);
+        }
+        makeMap(location)
+    }
+
+    function makeMap(location) {
         let map = document.createElement("iframe");
         map.width = 600;
         map.height = 450;
         map.frameborder = 0;
         map.style = 0;
-        map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=" + location.name;
+        if (location == undefined) {
+            map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=green+fox+academy";
+        } else {
+            map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=" + location.name;
+        }
         document.body.appendChild(map);
     }
     
