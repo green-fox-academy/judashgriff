@@ -9,7 +9,7 @@
 <body>
     
     <h3>Enter the location</h3>
-    <label for="button"></label>
+    <input type="text" id="input">
     <button id="button">Click me!</button>
     
     <style>
@@ -20,14 +20,22 @@
 
     </style>
 
-    <script>
-        
-        "use strict"
-        
-        let request = new XMLHttpRequest();
-        let btn = document.querySelector("#button");
-        
-        request.open("GET", "https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php?location=Budapest&");
+<script>
+    
+    "use strict"
+    
+    let request = new XMLHttpRequest();
+    let btn = document.querySelector("#button");
+    
+    btn.addEventListener("click", function() {
+        let str = document.querySelector("#input").value;
+        console.log(str)
+        getCoords(str)
+    })
+
+
+    function getCoords(str) {
+        request.open("GET", "https://devru-latitude-longitude-find-v1.p.mashape.com/latlon.php?location=" + str);
         request.setRequestHeader("X-Mashape-Key", "RTKqz9o8UZmshpOt0n3QwXTrewEZp1q7D5FjsnHr79cmfo7cgE");
         request.setRequestHeader("Accept", "application/json");
         
@@ -35,36 +43,34 @@
             if(request.readyState == 4) {
                 let location = JSON.parse(request.responseText).Results[0]
                 makeMap(location);
+            } else {
+                errMess()
             }
         }
-        request.send();
+    request.send();
+    }
+
+    function makeMap(location) {
+        console.log(location);
+        let coords = document.createElement("p");
+        coords.textContent = location.ll;
+        document.body.appendChild(coords);
+        let map = document.createElement("iframe");
+        map.width = 600;
+        map.height = 450;
+        map.frameborder = 0;
+        map.style = 0;
+        map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=" + location.name;
+        document.body.appendChild(map);
+    }
+    
+    function errMess() {
+        let pTag = document.createElement("p");
+        pTag.textContent = "Couldn't find the adress, sorry!";
+        document.body.appendChild(pTag);
+    }
         
-        function makeMap(location) {
-            console.log(location);
-            btn.addEventListener("click", function() {
-                let coords = document.createElement("p");
-                coords.textContent = location.ll;
-                document.body.appendChild(coords);
-                console.log(location);
-                let map = document.createElement("iframe");
-                map.width = 600;
-                map.height = 450;
-                map.frameborder = 0;
-                map.style = 0;
-                map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=" + location.name;
-                document.body.appendChild(map);
-            })
-        }
-        
-        
-        </script>
+    </script>
 
 </body>
 </html>
-<!-- 
-<iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDJ3kof44euEpMaxSYH8cEY7a-bPJzHU2A&q=Space+Needle,Seattle+WA" allowfullscreen>
-</iframe> -->

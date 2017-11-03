@@ -5,7 +5,7 @@ let request = new XMLHttpRequest();
 let btn = document.querySelector("#btn");
 let content = document.querySelector("#content");
 
-request.open("GET", "http://api.giphy.com/v1/gifs/search?q=the+last+airbender&api_key=uy7yUbYfg7jQ1Zbtxem8BwiLKwxurqZi&limit=16");
+request.open("GET", "http://api.giphy.com/v1/gifs/search?q=shakira&api_key=uy7yUbYfg7jQ1Zbtxem8BwiLKwxurqZi&limit=16");
 btn.addEventListener("click", function () {
     request.onreadystatechange = function() {
         if(request.readyState == 4) {
