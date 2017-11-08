@@ -1,6 +1,6 @@
 'use strict';
 
-let lineCount = 4;
+let lineCount = 16;
 
 // Write a program that draws a
 // triangle like this:

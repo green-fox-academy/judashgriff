@@ -1,15 +1,5 @@
 "use strict"
 
-// let center = document.querySelector("#center");
-
-// arrow1.addEventListener("mousedown", function(){
-    //     arrow2.src = "assets/left-dark.svg";
-    // });
-    
-    // img2.addEventListener("mousedown", function(){
-        //     img2.src = "assets/right-dark.svg";
-        // });
-        
 let images = [
     {"title": "Avalokiteśvara",
     "text": "Avalokiteśvara is a bodhisattva who embodies the compassion of all Buddhas. She is vastly renowned in Southeast Asia, China and Tibet with different names and forms. In the picture above is easy to see her most known and common form with the 1000 arms and 500 heads.",
