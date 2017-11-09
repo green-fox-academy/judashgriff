@@ -61,8 +61,8 @@ function rFact(num) {
 }}
 
 app.post('/dountil/:item', function(req, res) {
-    // console.log('receiving data...');
-    // console.log('body is ',req.body);
+    console.log('receiving data...');
+    console.log('body is ',req.body);
 
     if ( req.params.item == "sum" ) {
         let until = rSum(req.body.until);
