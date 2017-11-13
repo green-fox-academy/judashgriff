@@ -5,19 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fox player</title>
+    <script src="https://use.fontawesome.com/d626de491e.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <div id="main">
-        <div id="inside_main">
-            <div id="left"></div>
-            <div id="right"></div>
-            <footer id="footer"></footer>
+    <main>
+        <section id="inside_main">
+            <section id="left">
+                <img src="foxplayer.png" alt="" class="img logo">
+                <img src="music-placeholder.png" alt="" class="img album">
+                
+                <div class="playlist_box">
+                    <h2 class="title">Playlist</h2>
+                    <i class="fa fa-plus icon" aria-hidden="true"></i>
+                </div>
+                
+                <ul class="playlists">
+                    <li class="list">All tracks</li>
+                    <li class="list">Favorites</li>
+                    <li class="list">Relaxing music for programming<i class="fa fa-times icon" aria-hidden="true"></i></li>
+                    <li class="list">Party<i class="fa fa-times icon" aria-hidden="true"></i></li>
+                </ul>
+
+            </section>
+            <section id="right">
+
+                <div id="top_right">
+                    <div id="top_right_left">
+                        <h2>Drink the sea...</h2>
+                        <p>The glitch mob</p>
+                    </div>
+                    <nav id="top_right_right">
+                        <i class="fa-plus gray_button icon" aria-hidden="true"></i>
+                        <i class="fa-star gray_button icon" aria-hidden="true"></i>
+                    </nav>
+                </div>
+
+                <ul class="songs">
+                    <li class="song">Some nice music<p>3:30</p></li>
+                    <li class="song">Some nice music<p>3:30</p></li>
+                    <li class="song">Some nice music<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                    <li class="song">Party<p>3:30</p></li>
+                </ul>
+
+            </section>
+            <footer id="footer">
+
+                <audio></audio>
+                <img src="rewind.svg" alt="" class="icon">
+                <img src="pause.svg" alt="" class="icon">
+                <img src="forward.svg" alt="" class="icon">
+                <div id="seek_bar">
+                    <span class="time">2:30</span>
+                    <input type="range" min="1" max="100" value="0" id="seek_scroll">
+                    <span class="time">4:12</span>
+                </div>
+                <img src="shuffle.svg" alt="" class="icon">
+                <div id="volume_bar">
+                    <img src="volume.svg" alt="" class="icon">
+                    <input type="range" min="1" max="100" value="75" id="volume">
+                </div>
 
 
-        </div>
-    </div>
+            </footer>
+        </section>
+    </main>
 
     <script src="frontend.js"></script>
 
