@@ -20,21 +20,18 @@ const ajax = function( method, data, res, callback ) {
     };
 };
 
-
                     // T H E   C R E A T E   E L E M E N T   W A Y
 
 
-function capitalize(header) {
-    return header[0].toUpperCase() + header.slice(1);
-};
+let capitalize = ( header ) => {return header[0].toUpperCase() + header.slice(1)};
 
-function headerMaker(className, header) {
+function headerMaker( className, header ) {
     let myTableHeader = document.createElement("th");
     myTableHeader.textContent = capitalize(className);
     header.appendChild(myTableHeader);
 };
 
-function header (){
+function header () {
     let headers = ["name", "author", "category", "publication", "price"]
     let header = document.createElement("tr");
     headers.forEach(function(element) {
@@ -53,23 +50,29 @@ function printer( element ) {
     table.appendChild(tableRow);
 };
 
-function printOrganiser(item) {
-    console.log(item);
+function printOrganiser( item ) {
     header();
-    item.forEach(function(element, i) {
-        let toPrint = [element.book_name, element.aut_name, element.cate_descrip, element.pub_name, element.book_price];
+    item.forEach(function( element, i ) {
+        let toPrint = [element.book_name, element.aut_name, 
+            element.cate_descrip, element.pub_name, 
+            element.book_price];
         printer(toPrint);
     });
 };
 
 
-                    // T H E   S T R I N G   W A Y 
+//                     T H E   S T R I N G   W A Y 
 
 
 // function header(str) {
-//     str += `<th>Name</th><th>Author</th><th>Category</th><th>Publication</th><th>Price</th></tr>`
+//     str += `<th>Name</th>
+//             <th>Author</th>
+//             <th>Category</th>
+//             <th>Publication</th>
+//             <th>Price</th>
+//             </tr>`
 //     return str
-// }
+// };
 
 // function body(str, item) {
 //     item.forEach(function(element) {
@@ -80,18 +83,16 @@ function printOrganiser(item) {
 //                     <td>" + element.book_price + "</td></tr>";
 //                 });
 //     return str;
-// }
+// };
 
 // function printOrganiser(item) {
 //     let htmlString = "<tr>";
 //     htmlString = header(htmlString);
 //     htmlString = body(htmlString, item)
 //     table.innerHTML = htmlString;
-// }
+// };
 
-let buttonCounter = 0
 
 button.addEventListener('click', function() {
     ajax("GET", '', "/books", printOrganiser);
-    buttonCounter++;
 });

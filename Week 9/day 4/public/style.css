@@ -1,8 +1,19 @@
 table {
-    padding: 1rem;
-    width:100%;
+    box-sizing: border-box;
+    margin: 1rem;
+    width:95%;
+    border-collapse: collapse;
 }
 
 th, td{
     border: solid 1px black;
+    padding: 3px;
+}
+
+#selectors > * {
+    margin-right: 1rem;
+} 
+
+button {
+    margin-top: 1rem;
 }
