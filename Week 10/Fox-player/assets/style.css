@@ -57,6 +57,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .title {
@@ -70,6 +71,40 @@ main {
     font-size: 16px;
     margin-right: 0.5rem;
     color: #303030;
+}
+
+.add_new_playlist {
+    position: absolute;
+    top: 30px;
+    display: flex;
+    width: 329px;
+    height: 64px;
+    align-items: center; 
+    
+}
+
+.add_new_playlist * {
+    width: 70px;
+    height: 64px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.add_new_playlist input {
+    width: 260px;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.3), -6px 2px 12px rgba(0,0,0,0.3);
+}
+
+.add_new_playlist button {
+    cursor: pointer;
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.3), -6px 2px 12px rgba(0,0,0,0.3), inset 0px 0px 6px rgba(0,0,0,0.3);
+}
+
+.hidden {
+    display: none;
 }
 
 .playlists {
@@ -93,7 +128,7 @@ main {
     padding: 9px 0;
 }
 
-.list:nth-of-type( odd ), .song:nth-last-of-type( even ) {
+.list:nth-of-type( odd ), .song:nth-of-type( even ) {
     background-color: #eaeaea;
 }
 
@@ -211,6 +246,13 @@ main {
     cursor: pointer;
 }
 
+
+            /* lists click style */
+
+
+.list:hover, .song:hover {
+    cursor: pointer;
+}
 
             /* scrollbar */
 
