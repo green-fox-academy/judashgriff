@@ -56,73 +56,80 @@ let addTracks = function(data) {
         tracklist.appendChild(li);
     });
     indexTrackList();
+    listSlecting();
 }
 
-ajax("GET", '', "/playlists", addPlaylists)
-ajax("GET", '', "/playlist-tracks", addTracks)
-ajax("POST", '', "/playlists", addPlaylists)
+
+// additional modules
 
 
-            // additional functions
-
-
-let play = document.querySelector(".play");
-
-let rest = function() {
-    return play.src.substring(0, play.src.lastIndexOf("/") + 1)
-};
-
-let last = "play.svg";
-
-play.addEventListener('click', () => {
-    let restStr = rest()
-    if (last == "play.svg") {
-        play.src = (restStr += "pause.svg");
-        last = "pause.svg";
-    } else {
-        play.src = (restStr += "play.svg");
-        last = "play.svg";
-    }
-});
-
-let indexTrackList = function(){
+function indexTrackList(){
     let numbering = document.querySelectorAll(".index");
     numbering.forEach(function(each, i) {
         each.textContent = i + 1;
     }); 
-}
+};
 
-let addBtn = document.querySelector(".fa-plus");
-let addNew = document.querySelector(".add_new_playlist");
-
-addBtn.addEventListener('click', function() {
-    addNew.classList.toggle("hidden")
-});
-
-let newListBtn = addNew.querySelector("button");
-let newListInput = addNew.querySelector("input");
-
-newListBtn.addEventListener('click', function() {
-    ajax("POST", newListInput.value, "/playlists", 'somethingforlatertimes');
-});
-
-function select(itemList) {
-    itemList.forEach(function(element) {
-        console.log(element)
-        this.addEventListener('click', function() {
-            this.style.backgroundColor = "teal";
-        });
+let playButtonModule = (function() {
+    let play = document.querySelector(".play");
+    let last = "play.svg";
+    
+    let rest = function() {
+        return play.src.substring(0, play.src.lastIndexOf("/") + 1)
+    };
+    
+    play.addEventListener('click', () => {
+        let restStr = rest()
+        if (last == "play.svg") {
+            play.src = (restStr += "pause.svg");
+            last = "pause.svg";
+        } else {
+            play.src = (restStr += "play.svg");
+            last = "play.svg";
+        }
     });
+    
+});
+
+
+let playlistAdder = (function() {
+    let addBtn = document.querySelector(".fa-plus");
+    let addNew = document.querySelector(".add_new_playlist");
+    
+    addBtn.addEventListener('click', function() {
+        addNew.classList.toggle("hidden")
+    });
+    
+    let newListBtn = addNew.querySelector("button");
+    let newListInput = addNew.querySelector("input");
+    
+    newListBtn.addEventListener('click', function() {
+        ajax("POST", newListInput.value, "/playlists", 'somethingforlatertimes');
+    });
+})
+
+
+let listSlecting = function() {
+    let select = function(itemList) {
+        itemList.forEach(function(element) {
+            element.addEventListener('click', function() {
+                this.style.backgroundColor = "lightskyblue";
+            });
+        });
+    };
+
+    let listsAll = document.querySelectorAll(".list");
+    let songsAll = document.querySelectorAll(".song");
+    
+    let addClickFunc = function() {
+        select(listsAll);
+        select(songsAll);
+    };
+    
+    addClickFunc();
 };
 
-let listsAll = document.querySelectorAll(".list");
-let songsAll = document.querySelectorAll(".song");
 
-let addClickFunc = function() {
-    select(listsAll);
-    select(songsAll);
-};
-
-addClickFunc();
-
-console.log(listsAll, songsAll)
+ajax("GET", '', "/playlists", addPlaylists)
+ajax("GET", '', "/playlist-tracks", addTracks)
+ajax("POST", '', "/playlists", addPlaylists)
