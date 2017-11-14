@@ -33,37 +33,39 @@
 
                 <div id="top_right">
                     <div id="top_right_left">
-                        <h2>Drink the sea...</h2>
-                        <p>The glitch mob</p>
+                        <h2 class="title">Drink the sea...</h2>
+                        <p class="subtitle">The glitch mob</p>
                     </div>
                     <nav id="top_right_right">
-                        <i class="fa-plus gray_button icon" aria-hidden="true"></i>
-                        <i class="fa-star gray_button icon" aria-hidden="true"></i>
+                        <i class="fa fa-plus gray_button icon" aria-hidden="true"></i>
+                        <i class="fa fa-star gray_button icon" aria-hidden="true"></i>
                     </nav>
                 </div>
 
-                <ul class="songs">
-                    <li class="song">Some nice music<p>3:30</p></li>
-                    <li class="song">Some nice music<p>3:30</p></li>
-                    <li class="song">Some nice music<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                    <li class="song">Party<p>3:30</p></li>
-                </ul>
+                <ol class="tracklist">
+                    <li class="song"><span class="index">1</span>Some nice music<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Some nice music<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Some nice music<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                    <li class="song"><span class="index">1</span>Party<span class="song_length">3:30</span></li>
+                </ol>
 
             </section>
             <footer id="footer">
 
                 <audio></audio>
-                <img src="rewind.svg" alt="" class="icon">
-                <img src="pause.svg" alt="" class="icon">
-                <img src="forward.svg" alt="" class="icon">
+                <div id="play_bar">
+                    <img src="rewind.svg" alt="" class="icon rewind">
+                    <img src="play.svg" alt="" class="icon play">
+                    <img src="forward.svg" alt="" class="icon forward">
+                </div>
                 <div id="seek_bar">
                     <span class="time">2:30</span>
                     <input type="range" min="1" max="100" value="0" id="seek_scroll">
@@ -74,7 +76,6 @@
                     <img src="volume.svg" alt="" class="icon">
                     <input type="range" min="1" max="100" value="75" id="volume">
                 </div>
-
 
             </footer>
         </section>
