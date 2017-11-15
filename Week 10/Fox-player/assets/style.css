@@ -197,7 +197,12 @@ main {
     padding: 0 3rem;
 }
 
-#seek_bar, #volume_bar, #play_bar{
+#songPlay {
+    
+}
+
+
+/* #seek_bar, #volume_bar, #play_bar{
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -235,7 +240,7 @@ main {
 
 #volume {
     width: 70%;
-}
+} */
 
 .time {
     color: #4c4f52;
