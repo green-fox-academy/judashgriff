@@ -2,20 +2,20 @@
 
 const url = "http://localhost:3000";
 
-let button = document.querySelector("#button");
-let main = document.querySelector('#main');
-let table = document.createElement("table");
-main.appendChild(table);
+let button = document.querySelector( "#button" );
+let main = document.querySelector( '#main' );
+let table = document.createElement( "table" );
+main.appendChild( table );
 
-const ajax = function( method, data, res, callback ) {
+const ajax = function( method, res, callback, data ) {
     const xhr = new XMLHttpRequest();
     data = data ? data : null;
-    xhr.open( method, url + res);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send( JSON.stringify( data ));
+    xhr.open( method, url + res );
+    xhr.setRequestHeader( 'Content-Type', 'application/json' );
+    xhr.send( JSON.stringify( data ) );
     xhr.onreadystatechange = function() {
         if ( xhr.readyState === XMLHttpRequest.DONE ) {
-            callback( JSON.parse(xhr.response) );
+            callback( JSON.parse( xhr.response ) );
         };
     };
 };
@@ -23,21 +23,21 @@ const ajax = function( method, data, res, callback ) {
                     // T H E   C R E A T E   E L E M E N T   W A Y
 
 
-let capitalize = ( header ) => {return header[0].toUpperCase() + header.slice(1)};
+let capitalize = ( header ) => {return header[0].toUpperCase() + header.slice( 1 )};
 
 function headerMaker( className, header ) {
-    let myTableHeader = document.createElement("th");
-    myTableHeader.textContent = capitalize(className);
-    header.appendChild(myTableHeader);
+    let myTableHeader = document.createElement( "th" );
+    myTableHeader.textContent = capitalize( className );
+    header.appendChild( myTableHeader );
 };
 
 function header () {
     let headers = ["name", "author", "category", "publication", "price"]
-    let header = document.createElement("tr");
-    headers.forEach(function(element) {
-        headerMaker(element, header);
+    let header = document.createElement( "tr" );
+    headers.forEach( function( element ) {
+        headerMaker( element, header );
     });
-    table.appendChild(header);
+    table.appendChild( header );
 };
 
 function printer( element ) {
@@ -47,16 +47,16 @@ function printer( element ) {
         tableCell.textContent = each;
         tableRow.appendChild( tableCell );
     });
-    table.appendChild(tableRow);
+    table.appendChild( tableRow );
 };
 
 function printOrganiser( item ) {
     header();
-    item.forEach(function( element, i ) {
+    item.forEach( function( element, i ) {
         let toPrint = [element.book_name, element.aut_name, 
             element.cate_descrip, element.pub_name, 
             element.book_price];
-        printer(toPrint);
+        printer( toPrint );
     });
 };
 
@@ -64,7 +64,7 @@ function printOrganiser( item ) {
 //                     T H E   S T R I N G   W A Y 
 
 
-// function header(str) {
+// function header( str ) {
 //     str += `<th>Name</th>
 //             <th>Author</th>
 //             <th>Category</th>
@@ -74,8 +74,8 @@ function printOrganiser( item ) {
 //     return str
 // };
 
-// function body(str, item) {
-//     item.forEach(function(element) {
+// function body( str, item ) {
+//     item.forEach( function( element ) {
 //         str += "<tr><td>" + element.book_name + "</td>\
 //                     <td>" + element.aut_name + "</td>\
 //                     <td>" + element.cate_descrip + "</td>\
@@ -85,14 +85,28 @@ function printOrganiser( item ) {
 //     return str;
 // };
 
-// function printOrganiser(item) {
+// function printOrganiser( item ) {
 //     let htmlString = "<tr>";
-//     htmlString = header(htmlString);
-//     htmlString = body(htmlString, item)
+//     htmlString = header( htmlString );
+//     htmlString = body( htmlString, item )
 //     table.innerHTML = htmlString;
 // };
 
 
-button.addEventListener('click', function() {
-    ajax("GET", '', "/books", printOrganiser);
+const masFunc = function( data ) {
+    console.log( data );
+}
+
+button.addEventListener( 'click', function() {
+    ajax( "GET", "/books", printOrganiser, '' );
+});
+
+const btn2 = document.querySelector( "#button2" );
+btn2.addEventListener('click', function() {
+    const requestBody = {value: "kutyafule"};
+    ajax( "POST", "/add", masFunc, requestBody );
+})
+
+button.addEventListener( 'click', function() {
+    ajax( "GET", "/add", masFunc, '' );
 });

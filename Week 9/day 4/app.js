@@ -27,7 +27,7 @@ app.get('/books', function( req, res ) {
     selector += req.query.category ? ` cate_descrip = \'${req.query.category}\' AND` : ''
     selector += req.query.publisher ? ` pub_name = \'${req.query.publisher}\' AND` : ''
     selector += req.query.plt ? ` book_price < \'${req.query.plt}\' AND` : ''
-    selector += req.query.plt ? ` book_price > \'${req.query.pgt}\' AND` : ''
+    selector += req.query.pgt ? ` book_price > \'${req.query.pgt}\' AND` : ''
   } 
   if (selector.endsWith('AND')) {
     selector = selector.substr(0, selector.length - 4);
@@ -48,6 +48,20 @@ app.get('/books', function( req, res ) {
         return;
       }
      
+    res.json( result );
+  });
+});
+
+app.post('/add', function( req, res ) {
+  let qu = `CREATE TABLE mytable (id int NOT NULL AUTO_INCREMENT,
+            name varchar(50),
+            PRIMARY KEY (id)); `
+
+  connection.query(qu, function( err, result ) {
+    if ( err ) {
+      console.log( err.toString());
+      return;
+    }
     res.json( result );
   });
 });
