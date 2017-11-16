@@ -4,82 +4,114 @@ const audio = function() {
     const audio = document.querySelector( "audio" );
     let selectedSong = 0;
 
-    const audioPlay = function ( data, i ) {
-        audio.autoplay = "autoplay";
-        selectedSong = i;
-        console.log(selectedSong)
-        if (selectedSong > data.length - 1 ) {
-            selectedSong = 0;
-            audio.src = data[0].path;
-        } else if (selectedSong < 0) {
-            selectedSong = data.length - 1;
-            audio.src = data[selectedSong].path;
-        } else {
-            audio.src = data[i].path;
-        };
-
-        console.log( data.length, selectedSong )
-    };
-
-    const listSelecting = function( data ) {
-    
-        const selectCurrent = function( element, i, itemList, className ) {
-            element.addEventListener( 'dblclick', function() {
-                console.log(element)
-                console.log(i)
-                console.log(itemList)
-                console.log(className)
-                const selected = document.querySelector( `.${className}` );
-                if ( selected ) {selected.classList.remove( `${className}` )};
-                this.classList.add( className );
-                if ( className == "selected_song" ) {
-                    audioPlay( data, i )
-                };
-            });
-        }
-        
-        const selectBoss = function( itemList, className ) {
-            itemList.forEach( function( element, i ) {
-                selectCurrent( element, i, itemList, className )
-            });
-            // onAudioEnd( data, i );
-        };
-    
+    const playlistsAndSongs = function () {
         let listsAll = document.querySelectorAll( ".list" );
         let songsAll = document.querySelectorAll( ".song" );
-        
-        const addClickFunc = function() {
-            selectBoss( listsAll, "selected_list" );
-            selectBoss( songsAll, "selected_song" );
-        };
-        
-        addClickFunc();
-    };
 
-    const onAudioEnd = function( data, i ) {
-        audio.onended = function(event) {
-            audio.src = data[i + 1].path;
+        return {
+            listsAll,
+            songsAll
         };
     };
 
-    const forward = function( data ) {
-        const forwardBtn = document.querySelector( ".forward" );
-        forwardBtn.addEventListener('click', function() {
-            audioPlay( data, selectedSong + 1 )
-        });
+    const audioPlay = function ( data, i ) {
+        audio.src = data[i].path;
+        audio.autoplay = "autoplay";
+        selectedSong = i;
     };
 
-    const rewind = function( data ) {
-        const rewindBtn = document.querySelector( ".rewind" );
-        rewindBtn.addEventListener('click', function() {
-            audioPlay( data, selectedSong - 1 )
+    const selectCurrent = function( element, i, className, data ) {
+        const selected = document.querySelector( `.${className}` );
+        if ( selected ) {selected.classList.remove( `${className}` )};
+        element.classList.add( className );
+        if ( className == "selected_song" ) {
+            audioPlay( data, i )
+        };
+    };
+    
+    const selectBoss = function( itemList, className, data ) {
+        itemList.forEach( function( element, i ) {
+            element.addEventListener( 'dblclick', function() {
+                selectCurrent( element, i, className, data )
+            })
         });
+    };
+    
+    const addClickFunc = function( listsAll, songsAll, data ) {
+        selectBoss( listsAll, "selected_list", data );
+        selectBoss( songsAll, "selected_song", data );
+    };
+
+    const forwardFunc = function( data, songsAll ) {
+        if ( selectedSong >= songsAll.length - 1 ) {
+            selectedSong = 0;
+        } else {
+            selectedSong = selectedSong + 1
+        };
+        selectCurrent( songsAll[selectedSong], selectedSong, "selected_song", data )
     }
 
+    const forward = function( data, songsAll ) {
+        const forwardBtn = document.querySelector( ".forward" );
+        forwardBtn.addEventListener('click', function() {
+            forwardFunc( data, songsAll );
+        });
+        const audio = document.querySelector("audio");
+        audio.addEventListener("ended", function() {
+            forwardFunc( data, songsAll );
+        });
+    };
+
+    const rewind = function( data, songsAll ) {
+        const rewindBtn = document.querySelector( ".rewind" );
+        rewindBtn.addEventListener('click', function() {
+            if ( selectedSong <= 0 ) {
+                selectedSong = songsAll.length - 1;
+            } else {
+                selectedSong = selectedSong - 1
+            };
+            selectCurrent( songsAll[selectedSong], selectedSong, "selected_song", data );
+        });
+    };
+
+    const ranomiseFunc = function( shuffledData ) {
+
+    };
+
+    const shuffleFunc = function( shuffledData ) {
+        const shuffleBtn = document.querySelector( ".shuffle" );
+        shuffleBtn.addEventListener( 'click', function() {
+            let lists = playlistsAndSongs();
+            if ( shuffleBtn.src === "http://localhost:3000/images/shuffle.svg" ) {
+                shuffleBtn.src = "images/shuffle2.svg"
+                shuffleBtn.classList.add( "shuffle_selected" )
+            } else {
+                shuffleBtn.src = "images/shuffle.svg";
+                if ( shuffleBtn.classList.contains( "shuffle_selected" )) {
+                    shuffleBtn.classList.remove( "shuffle_selected" );
+                };
+            };
+            ranomiseFunc( shuffledData );
+        });
+    };
+
+    const shuffle = function( data ) {
+        data.forEach( function( element, i ) {
+            let j = Math.floor(Math.random() * ( i + 1 ));
+            let temp = element;
+            element = data[j];
+            data[j] = temp;
+        });
+        shuffleFunc( data );
+    };
+
     const audioMaster = function( data ) {
-        listSelecting( data );
-        forward( data );
-        rewind( data );
+        let lists = playlistsAndSongs();
+        addClickFunc( lists.listsAll, lists.songsAll, data );
+        forward( data, lists.songsAll );
+        rewind( data, lists.songsAll );
+        shuffle( data );
+
     };
 
     return {

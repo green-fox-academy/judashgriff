@@ -18,8 +18,7 @@ const playlistsAndTracks = function( getTimeFormat ) {
             }
             playlists.appendChild( li );
         });
-    removePlaylistEvents();
-    audioFunctions.audioMaster( data );
+        removePlaylistEvents();
     };
     
     const renderTracks = function( data ) {
@@ -32,7 +31,7 @@ const playlistsAndTracks = function( getTimeFormat ) {
             li.innerHTML += `<span class="song_length">${time}</span>`;
             tracklist.appendChild( li );
         });
-    audioFunctions.audioMaster( data );
+        audioFunctions.audioMaster( data );
     };
 
     const playlistAdder = function() {

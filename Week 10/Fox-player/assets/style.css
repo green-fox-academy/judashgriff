@@ -7,7 +7,7 @@
 
 body {
     height: 700px;
-    background: linear-gradient( #ddd 20%, #fff 40%, #ddd 80%) no-repeat;
+    background: linear-gradient( #ddd 20%, #fff 40%, #ddd 80% ) no-repeat;
 }
 
 main {
@@ -23,7 +23,7 @@ main {
     width: 100%;
     height: 100%;
     border-radius: 6px;
-    box-shadow: 2px 2px 7px rgb(160, 160, 160), -2px 2px 7px rgb(160, 160, 160);
+    box-shadow: 2px 2px 7px rgb( 160, 160, 160 ), -2px 2px 7px rgb( 160, 160, 160 );
     display: grid;
     grid-auto-columns: 330px 1fr;
     grid-auto-rows: 332px 60px;
@@ -76,11 +76,16 @@ main {
 .add_new_playlist {
     position: absolute;
     top: 30px;
+    left: 180px;
     display: flex;
-    width: 329px;
-    height: 64px;
+    width: 400px;
+    height: 140px;
+    border-radius: 8px;
     align-items: center; 
-    
+    justify-content: center;
+    background: linear-gradient(rgba(245, 24, 24, 0.966), rgb(64, 255, 6), rgb(255, 251, 6));
+    border: solid rgb(200, 200, 200) 6px;
+    box-shadow: 6px 6px 24px rgba(0, 0, 0, 0.4), -6px 6px 18px rgba(0, 0, 0, 0.4), -6px -6px 24px rgba(0, 0, 0, 0.4), 6px -6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .add_new_playlist * {
@@ -95,12 +100,12 @@ main {
     margin-right: 0.5rem;
     font-size: 1.5rem;
     padding-left: 0.5rem;
-    box-shadow: 6px 6px 12px rgba(0,0,0,0.3), -6px 2px 12px rgba(0,0,0,0.3);
+    box-shadow: 6px 6px 36px rgba(65, 65, 65, 0.3), -6px 6px 36px rgba(65, 65, 65, 0.3), -6px -6px 36px rgba(65, 65, 65, 0.3), 6px -6px 36px rgba(65, 65, 65, 0.3) ;
 }
 
 .add_new_playlist button {
     cursor: pointer;
-    box-shadow: 6px 6px 12px rgba(0,0,0,0.3), -6px 2px 12px rgba(0,0,0,0.3), inset 0px 0px 6px rgba(0,0,0,0.3);
+    box-shadow: 6px 6px 36px rgba(65, 65, 65, 0.3), -6px 2px 36px rgba(65, 65, 65, 0.3), inset 0px 0px 6px rgba(65, 65, 65, 0.6);
 }
 
 .playlists {
@@ -124,7 +129,7 @@ main {
     padding: 9px 0;
 }
 
-.list:nth-of-type( odd ), .song:nth-of-type( even ) {
+.list:nth-of-type(  odd  ), .song:nth-of-type(  even  ) {
     background-color: #eaeaea;
 }
 
@@ -195,7 +200,7 @@ main {
 }
 
 audio {
-    filter: hue-rotate(0deg);
+    filter: hue-rotate( 0deg );
     width: 100%;
 }
 
@@ -262,7 +267,11 @@ main ::-webkit-scrollbar-track {
 
 main ::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba( 0,0,0,0.3 ); 
     color: #4c4f52;
     opacity: 1;
+}
+
+main ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient( rgb( 203, 238, 247 ), rgb( 29, 158, 245 ) );
 }
