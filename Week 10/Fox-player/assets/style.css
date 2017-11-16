@@ -103,10 +103,6 @@ main {
     box-shadow: 6px 6px 12px rgba(0,0,0,0.3), -6px 2px 12px rgba(0,0,0,0.3), inset 0px 0px 6px rgba(0,0,0,0.3);
 }
 
-.hidden {
-    display: none;
-}
-
 .playlists {
     height: 63%;
     overflow-y: auto;
@@ -195,56 +191,43 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0 3rem;
+    position: relative;
 }
 
-#songPlay {
-    
+audio {
+    filter: hue-rotate(0deg);
+    width: 100%;
 }
 
-
-/* #seek_bar, #volume_bar, #play_bar{
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+audio::-webkit-media-controls, audio::-webkit-media-controls-panel {
+	background: transparent;
 }
 
-#seek_scroll::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    box-shadow: 1px 1px #aaa, 1px -1px #aaa, -1px 1px #aaa, -1px -1px #aaa;
-    border-radius: 50%; 
-    background: #3cd4ce;
-    cursor: pointer;
-    border: 3px #fff solid;
+audio::-webkit-media-controls-play-button {
+	margin: 0 1.5rem;
 }
 
-#play_bar {
-    width: 12%;
+audio::-webkit-media-controls-mute-button {
+    margin-left: 2rem;
 }
 
-#volume_bar {
-    width: 20%;
+audio::-webkit-media-controls-time-remaining-display {
+
 }
 
-#seek_scroll, #volume {
-    -webkit-appearance: none;
-    width: 80%;
-    height: 4px;
-    border-radius: 5px;   
-    background: #dbdbdb;
-    outline: none;
+.rewind {
+    position: absolute;
+    left: 3.8rem;
 }
 
-#volume {
-    width: 70%;
-} */
+.forward {
+    position: absolute;
+    left: 6.5rem;
+}
 
-.time {
-    color: #4c4f52;
-    font-size: 0.7rem;
+.shuffle {
+    position: absolute;
+    right: 12.5rem;
 }
 
 .icon:hover {
@@ -254,6 +237,13 @@ main {
 
             /* lists click style */
 
+.hidden {
+    display: none;
+}
+
+.playlists > .selected_list, .tracklist > .selected_song {
+    background-color: lightskyblue;
+}
 
 .list:hover, .song:hover {
     cursor: pointer;

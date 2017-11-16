@@ -26,7 +26,7 @@
                 </div>
                 
                 <ul class="playlists">
-                    <li class="list">All tracks</li>
+                    <!-- <li class="list">All tracks</li> -->
                 </ul>
 
             </section>
@@ -51,24 +51,12 @@
             </section>
             <footer id="footer">
 
-                <audio controls ontimeupdate="updateTime()" preload="none" src="music/Purple_Drift.mp3">
-                    <!-- <div id="play_bar">
-                        <img src="images/rewind.svg" alt="" class="icon rewind">
-                        <img src="images/play.svg" alt="" class="icon play">
-                        <img src="images/forward.svg" alt="" class="icon forward">
-                    </div>
-                    <div id="seek_bar">
-                        <span class="time">2:30</span>
-                        <input type="range" min="1" max="100" value="0" id="seek_scroll">
-                        <span class="time">4:12</span>
-                    </div>
-                    <img src="images/shuffle.svg" alt="" class="icon">
-                    <div id="volume_bar">
-                        <img src="images/volume.svg" alt="" class="icon">
-                        <input type="range" min="1" max="100" value="75" id="volume">
-                    </div> -->
+                <audio controls controlsList="nodownload" src="music/Purple_Drift.mp3">
                     <p>Your user agent does not support the HTML5 Video element.</p>
                 </audio>
+                <img src="images/rewind.svg" alt="" class="rewind">
+                <img src="images/forward.svg" alt="" class="forward">
+                <img src="images/shuffle.svg" alt="" class="shuffle">
             </footer>
         </section>
     </main>
