@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './style.scss';
+import './style.scss';
+
+
 
 class Hello extends React.Component {
     render() {
         return ( 
-            <h1>Hello World</h1>
+            <div class="container">
+                <h1>Hello World</h1>
+                <br/>
+                <table>
+                    {/* {table} */}
+                    <p>Hy, I am the table placeholder! </p>
+                </table>
+            </div>
         );
     }
 };
+
+
 
 ReactDOM.render(
     <Hello />,

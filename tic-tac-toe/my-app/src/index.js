@@ -15,7 +15,6 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         let count = 0;
-        let key = 0;
     }
 
     renderSquare(i) {
@@ -24,10 +23,9 @@ class Board extends React.Component {
     
     renderRow() {
         let rows = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             rows.push(this.renderSquare(this.count));
             this.count++;
-            this.key++;
         }
         return (
             <div className="board-row" key={this.key}>
@@ -38,7 +36,7 @@ class Board extends React.Component {
 
     render() {
         let rows = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             rows.push(this.renderRow())
         }
         return (
