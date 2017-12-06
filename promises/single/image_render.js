@@ -1,16 +1,14 @@
-'use strict'
-
-// import 'babelify/polyfill'
+'use strict';
 
 function loadImage(url) {
     return new Promise((resolve, reject) => {
         let image = new Image();
 
-        image.onload = function() {
+        image.onload = () => {
             resolve(image);
         };
 
-        image.onerror = function() {
+        image.onerror = () => {
             let message = 'Could not load image at ' + url;
             reject(new Error(message));
         };
@@ -18,4 +16,12 @@ function loadImage(url) {
     });
 };
 
-module.exports(loadImage);
+let addImg = (src) => {
+    let imgElement = document.createElement("img");
+    imgElement.src = src;
+    document.body.appendChild(imgElement);
+};
+
+loadImage('./cat1.jpg').then((image) => {
+    addImg(image.src);
+});
