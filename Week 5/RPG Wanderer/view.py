@@ -6,14 +6,14 @@ class View:
     def __init__(self, my_map):
         self.my_map = my_map
         self.create_canvas()
-        self.images = {"wall": PhotoImage(file='wall.png'),
-                       "floor": PhotoImage(file='floor.png'),
-                       "hero-down": PhotoImage(file='hero-down.png'),
-                       "hero-up": PhotoImage(file='hero-up.png'),
-                       "hero-left": PhotoImage(file='hero-left.png'),
-                       "hero-right": PhotoImage(file='hero-right.png'),
-                       "skeleton": PhotoImage(file='skeleton.png'),
-                       "boss": PhotoImage(file='boss.png')
+        self.images = {"wall": PhotoImage(file='./wall.png'),
+                       "floor": PhotoImage(file='./floor.png'),
+                       "hero-down": PhotoImage(file='./hero-down.png'),
+                       "hero-up": PhotoImage(file='./hero-up.png'),
+                       "hero-left": PhotoImage(file='./hero-left.png'),
+                       "hero-right": PhotoImage(file='./hero-right.png'),
+                       "skeleton": PhotoImage(file='./skeleton.png'),
+                       "boss": PhotoImage(file='./boss.png')
                        }
         self.create_map()
         self.canvas.focus_set()

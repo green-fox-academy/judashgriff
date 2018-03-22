@@ -23,7 +23,7 @@ class Game:
         self.my_view.start()
 
     def get_random_skeletons(self):
-        skeletons = randint(20, 25)
+        skeletons = randint(1, 6)
         while skeletons > 0:
             x = randint(1, 9)
             y = randint(1, 9)
